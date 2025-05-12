@@ -1,4 +1,4 @@
-package za.ac.cput.Entity;
+package za.ac.cput.domain;
 
 /* Student.java
       Tutor POJO class

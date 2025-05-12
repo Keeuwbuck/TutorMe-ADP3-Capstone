@@ -1,4 +1,4 @@
-package za.ac.cput.Entity;
+package za.ac.cput.domain;
 
 /* Tutor.java
       Tutor POJO class
@@ -20,13 +20,13 @@ public class Tutor {
     }
 
     //Parameterised constructor
-   private Tutor(TutorBuilder builder) {
+    private Tutor(TutorBuilder builder) {
         this.tutorID = builder.tutorID;
         this.hourlyRate = builder.hourlyRate;
         this.bio = builder.bio;
         this.averageRating = builder.averageRating;
         this.verificationStatus = builder.verificationStatus;
-   }
+    }
 
     public int getTutorID() {
         return tutorID;

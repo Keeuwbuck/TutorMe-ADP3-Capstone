@@ -1,4 +1,4 @@
-package za.ac.cput.Entity;
+package za.ac.cput.domain;
 /*  University.java
     University Domain class
     Author: Angelo Smidt - 230688020

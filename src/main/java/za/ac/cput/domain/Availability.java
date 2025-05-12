@@ -3,7 +3,7 @@
    Author: Hope Ringane (221174109)
    Date: 11 May 2025 */
 
-package za.ac.cput.Entity;
+package za.ac.cput.domain;
 
 public class Availability {
     private String availabilityId;
