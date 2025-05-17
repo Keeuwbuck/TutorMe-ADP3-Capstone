@@ -1,4 +1,4 @@
-package za.ac.cput.Entity;
+package za.ac.cput.domain;
 /* TutorSubject.java
 
      TutorSubject POJO class
@@ -6,6 +6,7 @@ package za.ac.cput.Entity;
      Author: Keewan Titus (230778577)
 
      Date: 04 May 2025 */
+
 public class TutorSubject {
     private String studentSubjectId;
     private String proficiencyLevel;

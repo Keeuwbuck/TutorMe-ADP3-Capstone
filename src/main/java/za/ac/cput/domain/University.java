@@ -4,6 +4,7 @@ package za.ac.cput.domain;
     Author: Angelo Smidt - 230688020
     Date: 11 May 2025
  */
+
 public class University {
     private String universityId;
     private String universityName;

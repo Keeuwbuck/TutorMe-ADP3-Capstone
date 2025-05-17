@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
     Author: Angelo Smidt - 230688020
     Date: 11 May 2025
  */
+
 public class Session {
     private String sessionId;
     private LocalDateTime startTime;

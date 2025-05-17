@@ -6,7 +6,6 @@ package za.ac.cput.domain;
      Date: 11 May 2025
      */
 
-
 public class Tutor {
     private int tutorID;
     private double hourlyRate;
