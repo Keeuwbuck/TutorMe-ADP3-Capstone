@@ -1,6 +1,7 @@
 package za.ac.cput.Factory;
 
 import za.ac.cput.domain.Availability;
+import za.ac.cput.util.Helper;
 
 public class AvailabilityFactory {
 
