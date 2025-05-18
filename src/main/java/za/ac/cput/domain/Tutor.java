@@ -52,10 +52,9 @@ public class Tutor {
         return "Tutor{" +
                 "tutorID=" + tutorID +
                 ", hourlyRate=" + hourlyRate +
-                ", bio='" + bio + '\'' +
-                ", averageRating=" + averageRating +
-                ", verificationStatus=" + verificationStatus +
-                '}';
+                ", bio='" + bio +
+                '\'' + ", averageRating=" + averageRating +
+                ", verificationStatus=" + verificationStatus + '}';
     }
 
     public static class TutorBuilder {
@@ -71,6 +70,10 @@ public class Tutor {
             this.bio = bio;
             this.averageRating = averageRating;
             this.verificationStatus = verificationStatus;
+        }
+
+        public TutorBuilder() {
+
         }
 
         public TutorBuilder setTutorID(int tutorID) {
