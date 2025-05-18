@@ -5,16 +5,17 @@ package za.ac.cput.Factory;
     Date: 18 May 2025
  */
 import za.ac.cput.domain.Session;
+import za.ac.cput.util.Helper;
 
 import java.time.LocalDateTime;
 
 public class SessionFactory {
     public static Session createSession(LocalDateTime startTime, LocalDateTime endTime, String location, String mode, double cost, String status, String notes){
 
-        //String sessionId = Helper.generateId();
+        String sessionId = Helper.generateId();
 
         return new Session.SessionBuilder()
-                //.sessionId(sessionId)
+                .sessionId(sessionId)
                 .startTime(startTime)
                 .endTime(endTime)
                 .location(location)
