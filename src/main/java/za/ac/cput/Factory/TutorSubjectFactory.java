@@ -9,6 +9,14 @@ public class TutorSubjectFactory {
 
         String studentSubjectId= Helper.generateId();
 
+        if(Helper.isValidspesializedRate(spesializedRate)){
+            return null;
+
+        }
+
+
+
+
         return new TutorSubject.TutorSubjectBuilder()
                 .setStudentSubjectId(studentSubjectId)
                 .setProficiencyLevel(proficiencyLevel)
