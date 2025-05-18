@@ -14,9 +14,6 @@ public class TutorSubjectFactory {
 
         }
 
-
-
-
         return new TutorSubject.TutorSubjectBuilder()
                 .setStudentSubjectId(studentSubjectId)
                 .setProficiencyLevel(proficiencyLevel)

@@ -26,7 +26,7 @@ public class Helper {
     }
 
     public static boolean isValidspesializedRate(double spesializedRate) {
-        if (spesializedRate < 10.00 || spesializedRate > 0.00) {
+        if (spesializedRate >=0.00|| spesializedRate <=10.00) {
             return false;
         }
         return true;
