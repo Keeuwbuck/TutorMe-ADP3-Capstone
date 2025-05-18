@@ -14,8 +14,9 @@ class TutorSubjectFactoryTest {
     @Test
     void createTutorSubject() {
         TutorSubject tutorsubject= TutorSubjectFactory.createTutorSubject("Degree",
-                4);
+                9.00);
         assertEquals("Degree",tutorsubject.getProficiencyLevel() );
-        assertEquals(10,tutorsubject.getSpesializedRate());
+        assertEquals(9.00,tutorsubject.getSpesializedRate());
+        System.out.println(tutorsubject);
     }
 }

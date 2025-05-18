@@ -18,6 +18,7 @@ class SubjectFactoryTest {
         assertEquals("ADP", subject.getSubjectDescription());
         assertEquals("IT", subject.getDepartment());
         assertEquals("9", subject.getDifficultyLevel());
+        System.out.println(subject);
 
 
 
