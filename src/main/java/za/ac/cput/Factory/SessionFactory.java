@@ -10,7 +10,7 @@ import za.ac.cput.util.Helper;
 import java.time.LocalDateTime;
 
 public class SessionFactory {
-    public static Session createSession(LocalDateTime startTime, LocalDateTime endTime, String location, String mode, double cost, String status, String notes){
+    public static Session createSession(int startTime, int endTime, String location, String mode, double cost, String status, String notes){
 
         String sessionId = Helper.generateId();
 

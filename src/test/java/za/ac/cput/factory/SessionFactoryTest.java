@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SessionFactoryTest {
-    /*@Test
+    @Test
     void createSession_Successful(){
         Session session = SessionFactory.createSession(12, 13, "CPUT", "Online", 25, "Under way", "None");
         assertEquals(12, session.getStartTime());
@@ -21,5 +21,5 @@ public class SessionFactoryTest {
         assertEquals(25, session.getCost());
         assertEquals("Under way", session.getStatus());
         assertEquals("None", session.getNotes());
-    }*/
+    }
 }
