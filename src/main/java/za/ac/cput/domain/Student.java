@@ -61,6 +61,30 @@ public class Student {
             this.yearOfStudy = yearOfStudy;
         }
 
+        public StudentBuilder() {
+
+        }
+
+        public StudentBuilder setStudentID(int studentID) {
+            this.studentID = studentID;
+            return this;
+        }
+
+        public StudentBuilder setStudentNumber(String studentNumber) {
+            this.studentNumber = studentNumber;
+            return this;
+        }
+
+        public StudentBuilder setStudentCourse(String studentCourse) {
+            this.studentCourse = studentCourse;
+            return this;
+        }
+
+        public StudentBuilder setYearOfStudy(String yearOfStudy) {
+            this.yearOfStudy = yearOfStudy;
+            return this;
+        }
+
         public Student build() {
             return new Student(this);
         }
