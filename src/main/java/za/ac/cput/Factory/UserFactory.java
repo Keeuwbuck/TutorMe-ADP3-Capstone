@@ -1,6 +1,7 @@
 package za.ac.cput.Factory;
-
++
 import za.ac.cput.domain.User;
+import za.ac.cput.util.Helper;
 
 public class UserFactory {
     
@@ -8,7 +9,7 @@ public class UserFactory {
 
         if(Helper.isNullOrEmpty(userId))
             return null;
-        if(Helper.isNullorEmpty(firstName))
+        if(Helper.isNullOrEmpty(firstName))
             return null;
         if(Helper.isNullOrEmpty(lastName))
             return null;
