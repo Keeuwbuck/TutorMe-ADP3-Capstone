@@ -1,19 +1,17 @@
-package za.ac.cput.Factory;
 
+package za.ac.cput.Factory;
+/*  AvailabilityFactory.java
+    Availability Factory class
+    Author: Hope Ringane (221174109)
+    Date: 18 May 2025
+ */
 import za.ac.cput.domain.Availability;
+import za.ac.cput.util.Helper;
 
 public class AvailabilityFactory {
+    public static Availability createAvailability(String dayOfWeek, String startTime, String endTime) {
 
-    private static Availability createAvailability( String availabilityId, String dayOfWeek, String startTime, String endTime){
-
-        if(Helper.isNullOrEmpty(availabilityId))
-            return null;
-        if(Helper.isNullOrEmpty(dayOfWeek))
-            return null;
-        if(Helper.isNullOrEmpty(startTime))
-            return null;
-        if(Helper.isNullOrEmpty(endTime))
-            return null;
+        String availabilityId = Helper.generateId();
 
         return new Availability.Builder()
                 .setAvailabilityId(availabilityId)
@@ -21,6 +19,5 @@ public class AvailabilityFactory {
                 .setstartTime(startTime)
                 .setendTime(endTime)
                 .build();
-
     }
 }
