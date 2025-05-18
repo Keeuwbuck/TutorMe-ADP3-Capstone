@@ -1,12 +1,10 @@
 package za.ac.cput.domain;
-
-import java.time.LocalDateTime;
-
 /*  Session.java
     Session Domain class
     Author: Angelo Smidt - 230688020
     Date: 11 May 2025
  */
+import java.time.LocalDateTime;
 
 public class Session {
     private String sessionId;
