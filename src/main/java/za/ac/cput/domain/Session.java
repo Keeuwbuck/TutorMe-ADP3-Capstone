@@ -8,8 +8,8 @@ import java.time.LocalDateTime;
 
 public class Session {
     private String sessionId;
-    private int startTime;
-    private int endTime;
+    private LocalDateTime startTime;
+    private LocalDateTime endTime;
     private String location;
     private String mode;
     private double cost;
@@ -21,7 +21,7 @@ public class Session {
     }
 
 //Constructor with parameters
-    public Session(String sessionId, int startTime, int endTime, String location, String mode, double cost, String status, String notes) {
+    public Session(String sessionId, LocalDateTime startTime, LocalDateTime endTime, String location, String mode, double cost, String status, String notes) {
         this.sessionId = sessionId;
         this.startTime = startTime;
         this.endTime = endTime;
@@ -47,9 +47,9 @@ public class Session {
     //Getters
     public String getSessionId() {return sessionId;}
 
-    public int getStartTime() {return startTime;}
+    public LocalDateTime getStartTime() {return startTime;}
 
-    public int getEndTime() {return endTime;}
+    public LocalDateTime getEndTime() {return endTime;}
 
     public String getLocation() {return location;}
 
@@ -79,8 +79,8 @@ public class Session {
 //Session builder class
 public static class SessionBuilder{
     private String sessionId;
-    private int startTime;
-    private int endTime;
+    private LocalDateTime startTime;
+    private LocalDateTime endTime;
     private String location;
     private String mode;
     private double cost;
@@ -92,12 +92,12 @@ public static class SessionBuilder{
         return this;
     }
 
-    public SessionBuilder startTime(int startTime) {
+    public SessionBuilder startTime(LocalDateTime startTime) {
         this.startTime = startTime;
         return this;
     }
 
-    public SessionBuilder endTime(int endTime) {
+    public SessionBuilder endTime(LocalDateTime endTime) {
         this.endTime = endTime;
         return this;
     }
