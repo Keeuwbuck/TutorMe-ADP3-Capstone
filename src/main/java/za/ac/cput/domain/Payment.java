@@ -15,6 +15,7 @@ public class Payment {
     private String paymentMethod;
     private String status;
     private String transactionID;
+
     public Payment() {
     }
 
@@ -70,6 +71,36 @@ public class Payment {
         private String paymentMethod;
         private String status;
         private String transactionID;
+
+        public PaymentBuilder() {
+        }
+
+        public Payment.PaymentBuilder setPaymentID(String paymentID) {
+            this.paymentID = paymentID;
+            return this;
+        }
+
+        public Payment.PaymentBuilder setAmount(double amount) {
+            this.amount = amount;
+            return this;
+        }
+        public Payment.PaymentBuilder setPaymentDate(LocalDateTime paymentDate) {
+            this.paymentDate = paymentDate;
+            return this;
+        }
+        public Payment.PaymentBuilder setPaymentMethod(String paymentMethod) {
+            this.paymentMethod = paymentMethod;
+            return this;
+        }
+        public Payment.PaymentBuilder setStatus(String status) {
+            this.status = status;
+            return this;
+        }
+        public Payment.PaymentBuilder setTransactionID(String transactionID) {
+            this.transactionID = transactionID;
+            return this;
+        }
+
 
         public PaymentBuilder(String paymentID, double amount, LocalDateTime paymentDate,
                               String paymentMethod, String status, String transactionID) {

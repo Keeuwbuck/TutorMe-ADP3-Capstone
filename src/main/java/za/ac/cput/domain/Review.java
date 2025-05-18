@@ -54,6 +54,25 @@ public class Review {
         private String comment;
         private LocalDateTime dateSubmitted;
 
+        public ReviewBuilder() {}
+
+        public Review.ReviewBuilder setReviewID(String reviewID) {
+            this.reviewID = reviewID;
+            return this;
+        }
+        public Review.ReviewBuilder setRating(int rating) {
+            this.rating = rating;
+            return this;
+        }
+        public Review.ReviewBuilder setComment(String comment) {
+            this.comment = comment;
+            return this;
+        }
+        public Review.ReviewBuilder setDateSubmitted(LocalDateTime dateSubmitted) {
+            this.dateSubmitted = dateSubmitted;
+            return this;
+        }
+
         public ReviewBuilder(String reviewID, int rating, String comment, LocalDateTime dateSubmitted) {
             this.reviewID = reviewID;
             this.rating = rating;
