@@ -9,7 +9,7 @@ public class Availability {
     private String availabilityId;
     private String dayOfWeek;
     private String startTime;
-    private String endTime;//endTime
+    private String endTime;
 
     public Availability() {
     }
