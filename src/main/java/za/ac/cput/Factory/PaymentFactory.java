@@ -1,4 +1,4 @@
 package za.ac.cput.Factory;
 
-public class Payment {
+public class PaymentFactory {
 }

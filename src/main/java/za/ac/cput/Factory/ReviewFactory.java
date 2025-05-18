@@ -1,4 +1,4 @@
 package za.ac.cput.Factory;
 
-public class Review {
+public class ReviewFactory {
 }
