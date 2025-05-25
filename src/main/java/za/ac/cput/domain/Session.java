@@ -5,6 +5,7 @@ package za.ac.cput.domain;
     Date: 11 May 2025
  */
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class Session {
     private String sessionId;
@@ -131,6 +132,18 @@ public static class SessionBuilder{
         and supplying an object of this class (SessionBuilder)
         which is passed to the outer constructor to define all  the instance variables*/
     public Session build(){return new Session(this);}
+
+    public SessionBuilder copy(Session session) {
+        this.sessionId = session.sessionId;
+        this.startTime = session.startTime;
+        this.endTime = session.endTime;
+        this.location = session.location;
+        this.mode = session.mode;
+        this.cost = session.cost;
+        this.status = session.status;
+        this.notes = session.notes;
+        return null;
+    }
 }
 
 }
