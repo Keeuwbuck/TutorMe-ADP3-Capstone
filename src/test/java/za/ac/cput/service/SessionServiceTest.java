@@ -32,7 +32,7 @@ public class SessionServiceTest {
     }
     @Test
     void d_update(){
-        Session newSession = new Session.SessionBuilder().copy(session).set("District Six").build();
+        Session newSession = new Session.SessionBuilder().copy(session).status("Completed").build();
         Session updated = service.update(newSession);
         assertNotNull(updated);
         System.out.println(updated);
