@@ -6,14 +6,21 @@ package za.ac.cput.domain;
      Date: 11 May 2025
      */
 
-import java.time.LocalDateTime;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
+import java.time.LocalDateTime;
+@Entity
 public class Review {
+    @Id
     private String reviewID;
     private int rating;
     private String comment;
     private LocalDateTime dateSubmitted;
 
+    //  @OneToOne
+//    @JoinColumn(name = "user_id") // Foreign Key column
+//    private User user;
     public Review() {
     }
     private Review(ReviewBuilder builder) {
