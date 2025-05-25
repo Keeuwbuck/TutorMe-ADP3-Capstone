@@ -81,5 +81,13 @@ public static class UniversityBuilder{
     and supplying an object of this class (UniversityBuilder)
     which is passed to the outer constructor to define all  the instance variables*/
     public University build(){return new University(this);}
+
+    public UniversityBuilder copy(University university) {
+        this.universityId = university.universityId;
+        this.universityName = university.universityName;
+        this.location = university.location;
+        this.domain = university.domain;
+        return null;
+    }
 }
 }
