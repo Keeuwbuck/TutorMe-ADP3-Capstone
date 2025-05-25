@@ -20,7 +20,7 @@ public class Payment {
     private String transactionID;
 
   //  @OneToOne
-//    @JoinColumn(name = "user_id") // Foreign Key column
+//    @JoinColumn(name = "user_id") //
 //    private User user;
     public Payment() {
     }
