@@ -1,11 +1,22 @@
 package za.ac.cput.service;
+/* Subject.java
 
+     TutorSubjectSubject POJO class
+
+     Author: Keewan Titus (230778577)
+
+     Date: 25 May 2025 */
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import za.ac.cput.domain.Subject;
 import za.ac.cput.domain.TutorSubject;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class TutorSubjectService implements iTutorSubjectService {
+    @Autowired
     public static TutorSubject service;
     private TutorSubjectService repository;
 
@@ -27,10 +38,11 @@ public class TutorSubjectService implements iTutorSubjectService {
         return true;
     }
 
-    public List<TutorSubject> getAll() {
+    public List<Subject> getAll() {
         return this.repository.getAll();
-
-
+    }
+    public Optional<Subject> getSubjectId(String subjectId) {
+        return Optional.empty();
     }
 }
 

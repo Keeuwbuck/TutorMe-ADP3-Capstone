@@ -64,5 +64,10 @@ public class TutorSubject {
         public TutorSubject build() {
             return new TutorSubject(this);
         }
+
+
+        public TutorSubjectBuilder copy(TutorSubject tutor) {
+            return null;
+        }
     }
 }

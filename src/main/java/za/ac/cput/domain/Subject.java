@@ -82,6 +82,10 @@ public class Subject {
         public Subject build() {
             return new Subject(this);
         }
+
+        public SubjectBuilder copy(Subject subject) {
+            return null;
+        }
     }
 
 }
