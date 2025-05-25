@@ -6,9 +6,12 @@ package za.ac.cput.domain;
      Date: 11 May 2025
      */
 
-import java.time.LocalDateTime;
+import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
+@Entity
 public class Payment {
+    @Id
     private String paymentID;
     private double amount;
     private LocalDateTime paymentDate;
@@ -16,6 +19,9 @@ public class Payment {
     private String status;
     private String transactionID;
 
+  //  @OneToOne
+//    @JoinColumn(name = "user_id") // Foreign Key column
+//    private User user;
     public Payment() {
     }
 
