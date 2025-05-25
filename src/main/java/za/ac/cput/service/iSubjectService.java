@@ -9,6 +9,7 @@ public interface iSubjectService {
    Subject create(Subject Subject);
    Subject read(String id);
    Subject update(Subject Subject);
+   boolean delete(String id);
    List<Subject> getAll();
    List<Subject> getByName(String subjectName);
 

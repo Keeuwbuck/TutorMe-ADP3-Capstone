@@ -42,7 +42,12 @@ public class SubjectService implements iSubjectService {
         return this.repository.update(subject);
     }
 
-   @Override
+    @Override
+    public boolean delete(String id) {
+        return false;
+    }
+
+    @Override
     public List<Subject> getAll() {
         return this.repository.getAll();
     }

@@ -20,7 +20,7 @@ public class TutorSubjectService implements iTutorSubjectService {
     public static TutorSubject service;
     private TutorSubjectService repository;
 
-    public TutorSubjectService create(TutorSubject tutorSubject) {
+    public TutorSubject create(TutorSubject tutorSubject) {
         return repository.create(tutorSubject);
     }
 
@@ -29,8 +29,9 @@ public class TutorSubjectService implements iTutorSubjectService {
 
     }
 
-    public void update(TutorSubject subjectName) {
+    public TutorSubject update(TutorSubject subjectName) {
         repository.update(subjectName);
+        return subjectName;
     }
 
     public boolean delete(String subjectCode) {

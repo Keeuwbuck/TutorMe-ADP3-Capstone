@@ -19,7 +19,7 @@ class TutorSubjectServiceTest {
 
     @Test
     void a_create() {
-        TutorSubjectService created=service.create(tutor);
+        TutorSubject created=service.create(tutor);
         assertNotNull(created);
         System.out.println(created);
     }
