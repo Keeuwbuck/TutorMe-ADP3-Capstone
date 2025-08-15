@@ -1,12 +1,17 @@
 package za.ac.cput.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jdk.jfr.Enabled;
+
 /* Student.java
       Tutor POJO class
      Author: Henzley Spogter (230013309)
      Date: 11 May 2025
      */
-
+@Entity
 public class Student {
+    @Id
     private int studentID;
     private String studentNumber;
     private String studentCourse;
@@ -84,6 +89,15 @@ public class Student {
             this.yearOfStudy = yearOfStudy;
             return this;
         }
+
+//        Todo: Add 'copy' method
+public StudentBuilder copy(Student student) {
+    this.studentID = student.studentID;
+    this.studentNumber = student.studentNumber;
+    this.studentCourse = student.studentCourse;
+    this.yearOfStudy = student.yearOfStudy;
+    return null;
+}
 
         public Student build() {
             return new Student(this);
