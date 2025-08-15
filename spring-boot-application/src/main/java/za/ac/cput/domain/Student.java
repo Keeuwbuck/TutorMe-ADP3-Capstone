@@ -90,14 +90,13 @@ public class Student {
             return this;
         }
 
-//        Todo: Add 'copy' method
-public StudentBuilder copy(Student student) {
-    this.studentID = student.studentID;
-    this.studentNumber = student.studentNumber;
-    this.studentCourse = student.studentCourse;
-    this.yearOfStudy = student.yearOfStudy;
-    return null;
-}
+        public StudentBuilder copy(Student student) {
+            this.studentID = student.studentID;
+            this.studentNumber = student.studentNumber;
+            this.studentCourse = student.studentCourse;
+            this.yearOfStudy = student.yearOfStudy;
+            return null;
+        }
 
         public Student build() {
             return new Student(this);

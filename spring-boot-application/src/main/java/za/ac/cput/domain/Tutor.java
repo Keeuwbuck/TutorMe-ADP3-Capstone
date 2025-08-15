@@ -105,15 +105,15 @@ public class Tutor {
             return this;
         }
 
-//        Todo: Add 'copy' method
-public TutorBuilder copy(Tutor tutor) {
-    this.tutorID = tutor.tutorID;
-    this.hourlyRate = tutor.hourlyRate;
-    this.bio = tutor.bio;
-    this.averageRating = tutor.averageRating;
-    this.verificationStatus = tutor.verificationStatus;
-    return null;
-}
+
+        public TutorBuilder copy(Tutor tutor) {
+            this.tutorID = tutor.tutorID;
+            this.hourlyRate = tutor.hourlyRate;
+            this.bio = tutor.bio;
+            this.averageRating = tutor.averageRating;
+            this.verificationStatus = tutor.verificationStatus;
+            return null;
+        }
 
         public Tutor build() {
             return new Tutor(this);
