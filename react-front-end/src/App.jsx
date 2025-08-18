@@ -1,35 +1,61 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Home from "./pages/Home";
+import Tutors from "./pages/Tutors";
+import Bookings from "./pages/Bookings";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import "./App.css";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+    const [count, setCount] = useState(0);
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    return (
+        <Router>
+            <div className="min-h-screen bg-gray-100 text-gray-900">
+                {/* Navbar */}
+                <header className="bg-blue-600 text-white shadow-md">
+                    <nav className="container mx-auto flex justify-between items-center p-4">
+                        <h1 className="text-2xl font-bold">TutorConnect</h1>
+                        <ul className="flex gap-6">
+                            <li><Link to="/" className="hover:underline">Home</Link></li>
+                            <li><Link to="/tutors" className="hover:underline">Tutors</Link></li>
+                            <li><Link to="/bookings" className="hover:underline">Bookings</Link></li>
+                            <li><Link to="/login" className="hover:underline">Login</Link></li>
+                            <li><Link to="/register" className="hover:underline">Register</Link></li>
+                        </ul>
+                    </nav>
+                </header>
+
+                {/* Main Content */}
+                <main className="container mx-auto p-6">
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/tutors" element={<Tutors />} />
+                        <Route path="/bookings" element={<Bookings />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/register" element={<Register />} />
+                    </Routes>
+
+                    {/* Demo Counter from Vite starter */}
+                    <div className="mt-12 text-center">
+                        <button
+                            onClick={() => setCount((count) => count + 1)}
+                            className="bg-purple-600 text-white px-6 py-3 rounded-lg shadow hover:bg-purple-700"
+                        >
+                            Count is {count}
+                        </button>
+                        <p className="mt-2 text-sm text-gray-600">
+                            This counter is just from the Vite boilerplate.
+                        </p>
+                    </div>
+                </main>
+
+                {/* Footer */}
+                <footer className="bg-gray-800 text-white text-center py-4 mt-12">
+                    <p>&copy; {new Date().getFullYear()} TutorConnect. All rights reserved.</p>
+                </footer>
+            </div>
+        </Router>
+    );
 }
-
-export default App
