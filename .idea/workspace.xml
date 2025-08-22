@@ -5,36 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ce4184a4-3842-412f-b640-459e5e02c723" name="Changes" comment="Annotate 'Student' and 'Tutor' repository classes.">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/eacb987c-af25-4bd1-b48c-20d927af1737.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/eacb987c-af25-4bd1-b48c-20d927af1737/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/eacb987c-af25-4bd1-b48c-20d927af1737/storage_v2/_src_/schema/mysql.osA4Bg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/eacb987c-af25-4bd1-b48c-20d927af1737/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2025_08_18_19_42_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2025_08_18_19_42__Changes_.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/TutorMe-ADP3-Capstone.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/controller/AvailabilityController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/controller/PaymentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/controller/ReviewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/controller/SessionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/controller/SubjectController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/controller/TutorSubjectController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/controller/UniversityController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-boot-application/src/main/resources/application.properties" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/controller/AvailabilityController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/controller/PaymentController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/controller/ReviewController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/controller/SessionController.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/controller/StudentController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/controller/SubjectController.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/controller/TutorController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/controller/TutorSubjectController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/controller/UniversityController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/controller/UserController.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/domain/Availability$Builder.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/domain/Availability.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/domain/Payment$PaymentBuilder.class" afterDir="false" />
@@ -88,57 +63,8 @@
       <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/service/iSubjectService.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/service/iTutorSubjectService.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/util/Helper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/za/ac/cput/factory/AvailabilityFactoryTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/za/ac/cput/factory/PaymentFactoryTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/za/ac/cput/factory/ReviewFactoryTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/za/ac/cput/factory/SessionFactoryTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/za/ac/cput/factory/StudentFactoryTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/za/ac/cput/factory/SubjectFactoryTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/za/ac/cput/factory/TutorFactoryTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/za/ac/cput/factory/TutorSubjectFactoryTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/za/ac/cput/factory/UniversityFactoryTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/za/ac/cput/factory/UserFactoryTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/za/ac/cput/service/SessionServiceTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/za/ac/cput/service/SubjectServiceTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/za/ac/cput/service/TutorSubjectServiceTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/za/ac/cput/service/UniversityServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-boot-application/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/spring-boot-application/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-boot-application/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spring-boot-application/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spring-boot-application/src/main/java/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/Factory/AvailabilityFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/Factory/AvailabilityFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/Factory/PaymentFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/Factory/PaymentFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/Factory/ReviewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/Factory/ReviewFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/Factory/SessionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/Factory/SessionFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/Factory/StudentFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/Factory/StudentFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/Factory/SubjectFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/Factory/SubjectFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/Factory/TutorFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/Factory/TutorFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/Factory/TutorSubjectFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/Factory/TutorSubjectFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/Factory/UniversityFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/Factory/UniversityFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/Factory/UserFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/Factory/UserFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/domain/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/domain/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/domain/Tutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/domain/Tutor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/domain/TutorSubject.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/domain/TutorSubject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/domain/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/repository/StudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/repository/StudentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/repository/TutorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/repository/TutorRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/util/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-boot-application/src/main/java/za/ac/cput/util/Helper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-boot-application/src/test/java/za/ac/cput/factory/AvailabilityFactoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-boot-application/src/test/java/za/ac/cput/factory/AvailabilityFactoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-boot-application/src/test/java/za/ac/cput/factory/PaymentFactoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-boot-application/src/test/java/za/ac/cput/factory/PaymentFactoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-boot-application/src/test/java/za/ac/cput/factory/ReviewFactoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-boot-application/src/test/java/za/ac/cput/factory/ReviewFactoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-boot-application/src/test/java/za/ac/cput/factory/SessionFactoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-boot-application/src/test/java/za/ac/cput/factory/SessionFactoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-boot-application/src/test/java/za/ac/cput/factory/StudentFactoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-boot-application/src/test/java/za/ac/cput/factory/StudentFactoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-boot-application/src/test/java/za/ac/cput/factory/SubjectFactoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-boot-application/src/test/java/za/ac/cput/factory/SubjectFactoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-boot-application/src/test/java/za/ac/cput/factory/TutorFactoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-boot-application/src/test/java/za/ac/cput/factory/TutorFactoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-boot-application/src/test/java/za/ac/cput/factory/TutorSubjectFactoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-boot-application/src/test/java/za/ac/cput/factory/TutorSubjectFactoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-boot-application/src/test/java/za/ac/cput/factory/UniversityFactoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-boot-application/src/test/java/za/ac/cput/factory/UniversityFactoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-boot-application/src/test/java/za/ac/cput/factory/UserFactoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-boot-application/src/test/java/za/ac/cput/factory/UserFactoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-boot-application/src/test/java/za/ac/cput/service/SessionServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-boot-application/src/test/java/za/ac/cput/service/SessionServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-boot-application/src/test/java/za/ac/cput/service/SubjectServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-boot-application/src/test/java/za/ac/cput/service/SubjectServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-boot-application/src/test/java/za/ac/cput/service/TutorSubjectServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-boot-application/src/test/java/za/ac/cput/service/TutorSubjectServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-boot-application/src/test/java/za/ac/cput/service/UniversityServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-boot-application/src/test/java/za/ac/cput/service/UniversityServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
