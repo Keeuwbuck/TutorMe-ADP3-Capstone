@@ -5,6 +5,8 @@
       <sourceFolder url="file://$MODULE_DIR$/spring-boot-application/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/spring-boot-application/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/spring-boot-application/src/test/java" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/spring-boot-application/.idea/shelf" />
+      <excludeFolder url="file://$MODULE_DIR$/spring-boot-application/target/generated-sources" />
     </content>
   </component>
 </module>

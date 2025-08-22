@@ -4,67 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce4184a4-3842-412f-b640-459e5e02c723" name="Changes" comment="Annotate 'Student' and 'Tutor' repository classes.">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TutorMe-ADP3-Capstone.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/controller/StudentController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/controller/TutorController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/domain/Availability$Builder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/domain/Availability.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/domain/Payment$PaymentBuilder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/domain/Payment.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/domain/Review$ReviewBuilder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/domain/Review.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/domain/Session$SessionBuilder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/domain/Session.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/domain/Student$StudentBuilder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/domain/Student.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/domain/Subject$SubjectBuilder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/domain/Subject.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/domain/Tutor$TutorBuilder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/domain/Tutor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/domain/TutorSubject$TutorSubjectBuilder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/domain/TutorSubject.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/domain/University$UniversityBuilder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/domain/University.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/domain/User$UserBuilder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/domain/User.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/factory/AvailabilityFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/factory/PaymentFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/factory/ReviewFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/factory/SessionFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/factory/StudentFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/factory/SubjectFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/factory/TutorFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/factory/TutorSubjectFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/factory/UniversityFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/factory/UserFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/repository/AvailabilityRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/repository/PaymentRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/repository/ReviewRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/repository/SessionRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/repository/StudentRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/repository/SubjectRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/repository/TutorRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/repository/TutorSubjectRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/repository/UniversityRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/repository/UserRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/service/AvailabilityService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/service/IAvailabilityService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/service/ISessionService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/service/IUniversityService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/service/IUserService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/service/SessionService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/service/SubjectService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/service/TutorSubjectService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/service/UniversityService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/service/UserService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/service/iSubjectService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/service/iTutorSubjectService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/za/ac/cput/util/Helper.class" afterDir="false" />
+    <list default="true" id="ce4184a4-3842-412f-b640-459e5e02c723" name="Changes" comment="Major refactoring">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-boot-application/src/main/java/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-boot-application/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/spring-boot-application/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -403,7 +345,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755595988030</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Major refactoring">
+      <option name="closed" value="true" />
+      <created>1755873995820</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1755873995820</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -435,7 +385,8 @@
     <MESSAGE value="Create 'Student' and 'Tutor' repository Interfaces." />
     <MESSAGE value="Create 'Student' and 'Tutor' controller classes." />
     <MESSAGE value="Annotate 'Student' and 'Tutor' repository classes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Annotate 'Student' and 'Tutor' repository classes." />
+    <MESSAGE value="Major refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="Major refactoring" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
