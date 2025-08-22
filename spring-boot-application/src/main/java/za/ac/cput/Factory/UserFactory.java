@@ -1,4 +1,4 @@
-package za.ac.cput.Factory;
+package za.ac.cput.factory;
 
 /*  UserFactory.java
     User Factory class
@@ -12,15 +12,53 @@ import za.ac.cput.util.Helper;
 
 public class UserFactory {
 
-    public static User createUser(String firstName, String lastName, Long idNumber, String phoneNumber, String email, String password) {
+    public static User createUser(String firstName,
+                                  String lastName,
+                                  String phoneNumber,
+                                  String email,
+                                  String password) {
 
+        // generate unique userId
         String userId = Helper.generateId();
 
-        return new User.Builder()
+        // check if values are null or empty
+        if (Helper.isNullOrEmpty(firstName) ||
+                Helper.isNullOrEmpty(lastName) ||
+                Helper.isNullOrEmpty(phoneNumber) ||
+                Helper.isNullOrEmpty(email) ||
+                Helper.isNullOrEmpty(password)) {
+            return null;
+        }
+
+        // check if firstName is valid
+        if (!Helper.isValidFirstName(firstName)) {
+            return null;
+        }
+
+        // check if lastName is valid
+        if (!Helper.isValidLastName(lastName)) {
+            return null;
+        }
+
+        // check if phoneNumber is valid
+        if (!Helper.isValidPhone(phoneNumber)) {
+            return null;
+        }
+
+        // check if email is valid
+        if (!Helper.isValidEmail(email)) {
+            return null;
+        }
+
+        // check if password is valid
+        if (!Helper.isValidPassword(password)) {
+            return null;
+        }
+
+        return new User.UserBuilder()
                 .setUserId(userId)
                 .setFirstName(firstName)
                 .setLastName(lastName)
-                .setIdNumber(idNumber)
                 .setPhoneNumber(phoneNumber)
                 .setEmail(email)
                 .setPassword(password)

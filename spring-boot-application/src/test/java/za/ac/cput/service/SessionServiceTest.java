@@ -4,14 +4,15 @@ package za.ac.cput.service;
     Author: Angelo Smidt - 230688020
     Date: 25 May 2025
  */
+import org.junit.jupiter.api.MethodOrderer;
 import za.ac.cput.domain.Session;
-import za.ac.cput.Factory.SessionFactory;
+import za.ac.cput.factory.SessionFactory;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import java.time.LocalDateTime;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import org.springframework.stereotype.Service;
-@TestMethodOrder(Methodorderer.MethodName.class)
+
+@TestMethodOrder(MethodOrderer.MethodName.class)
 public class SessionServiceTest {
 
     private SessionService service;
@@ -32,7 +33,7 @@ public class SessionServiceTest {
     }
     @Test
     void d_update(){
-        Session newSession = new Session.SessionBuilder().copy(session).set("District Six").build();
+        Session newSession = new Session.SessionBuilder().copy(session).location("District Six").build();
         Session updated = service.update(newSession);
         assertNotNull(updated);
         System.out.println(updated);

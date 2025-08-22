@@ -1,7 +1,6 @@
 package za.ac.cput.factory;
 
 import org.junit.jupiter.api.Test;
-import za.ac.cput.Factory.ReviewFactory;
 import za.ac.cput.domain.Review;
 
 import java.time.LocalDateTime;

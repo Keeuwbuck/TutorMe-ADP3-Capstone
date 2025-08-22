@@ -10,13 +10,12 @@ package za.ac.cput.domain;
 public class TutorSubject {
     private String studentSubjectId;
     private String proficiencyLevel;
-    private double spesializedRate;
+    private double specializedRate;
 
-    private  TutorSubject(TutorSubjectBuilder builder) {
+    private TutorSubject(TutorSubjectBuilder builder) {
         this.studentSubjectId = builder.studentSubjectId;
         this.proficiencyLevel = builder.proficiencyLevel;
-        this.spesializedRate = builder.spesializedRate;
-
+        this.specializedRate = builder.specializedRate;
 
 
     }
@@ -29,26 +28,26 @@ public class TutorSubject {
         return proficiencyLevel;
     }
 
-    public double getSpesializedRate() {
-        return spesializedRate;
+    public double getSpecializedRate() {
+        return specializedRate;
     }
+
     @Override
     public String toString() {
-        return "TutorSubject+ " + studentSubjectId+ ", " +
-                "proficiencyLevel=" + proficiencyLevel + ", spesializedRate=" + spesializedRate;
+        return "TutorSubject+ " + studentSubjectId + ", " +
+                "proficiencyLevel=" + proficiencyLevel + ", specializedRate=" + specializedRate;
 
 
     }
+
     public static class TutorSubjectBuilder {
         private String studentSubjectId;
         private String proficiencyLevel;
-        private double spesializedRate;
+        private double specializedRate;
 
         public TutorSubjectBuilder setStudentSubjectId(String studentSubjectId) {
             this.studentSubjectId = studentSubjectId;
             return this;
-
-
         }
 
         public TutorSubjectBuilder setProficiencyLevel(String proficiencyLevel) {
@@ -57,14 +56,14 @@ public class TutorSubject {
 
         }
 
-        public TutorSubjectBuilder setSpesializedRate(double spesializedRate) {
-            this.spesializedRate = spesializedRate;
+        public TutorSubjectBuilder setSpecializedRate(double specializedRate) {
+            this.specializedRate = specializedRate;
             return this;
         }
+
         public TutorSubject build() {
             return new TutorSubject(this);
         }
-
 
         public TutorSubjectBuilder copy(TutorSubject tutor) {
             return null;

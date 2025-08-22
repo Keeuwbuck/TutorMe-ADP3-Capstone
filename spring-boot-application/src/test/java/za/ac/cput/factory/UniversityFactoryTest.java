@@ -5,7 +5,6 @@ package za.ac.cput.factory;
     Date: 18 May 2025
  */
 import org.junit.jupiter.api.Test;
-import za.ac.cput.Factory.UniversityFactory;
 import za.ac.cput.domain.University;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

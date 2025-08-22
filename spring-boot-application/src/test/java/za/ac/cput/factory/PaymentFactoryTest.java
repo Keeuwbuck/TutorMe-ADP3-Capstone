@@ -1,7 +1,6 @@
 package za.ac.cput.factory;
 
 import org.junit.jupiter.api.Test;
-import za.ac.cput.Factory.PaymentFactory;
 import za.ac.cput.domain.Payment;
 
 import java.time.LocalDateTime;

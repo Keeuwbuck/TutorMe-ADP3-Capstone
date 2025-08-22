@@ -5,13 +5,10 @@
 
 package za.ac.cput.domain;
 
-
-
 public class User {
     private String userId;
     private String firstName;
     private String lastName;
-    private Long idNumber;
     private String phoneNumber;
     private String email;
     private String password;
@@ -19,13 +16,10 @@ public class User {
     public User() {
     }
 
-
-
-    public User(Builder builder) {
+    protected User(UserBuilder builder) {
         this.userId = builder.userId;
         this.firstName = builder.firstName;
         this.lastName = builder.lastName;
-        this.idNumber = builder.idNumber;
         this.phoneNumber = builder.phoneNumber;
         this.email = builder.email;
         this.password = builder.password;
@@ -35,16 +29,12 @@ public class User {
         return userId;
     }
 
-    public String getUserName() {
+    public String getFirstName() {
         return firstName;
     }
 
-    public String getUserSurname() {
+    public String getLastName() {
         return lastName;
-    }
-
-    public Long getIdNumber() {
-        return idNumber;
     }
 
     public String getPhoneNumber() {
@@ -54,6 +44,7 @@ public class User {
     public String getEmail() {
         return email;
     }
+
     public String getPassword() {
         return password;
     }
@@ -62,68 +53,64 @@ public class User {
     public String toString() {
         return "User{" +
                 "userId='" + userId + '\'' +
-                ", userName='" + firstName + '\'' +
-                ", userSurname='" + lastName + '\'' +
-                ", idNumber=" + idNumber +
+                ", userFirstName='" + firstName + '\'' +
+                ", userLastName='" + lastName + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }
-    public static class Builder {
-        private String userId;
-        private String firstName;
-        private String lastName;
-        private Long idNumber;
-        private String phoneNumber;
-        private String email;
-        private String password;
 
-        public Builder setUserId(String userId) {
+    // Implementation of the builder class
+    public static class UserBuilder {
+        protected String userId;
+        protected String firstName;
+        protected String lastName;
+        protected String phoneNumber;
+        protected String email;
+        protected String password;
+
+        public UserBuilder setUserId(String userId) {
             this.userId = userId;
             return this;
         }
 
-        public Builder setFirstName(String firstName) {
+        public UserBuilder setFirstName(String firstName) {
             this.firstName = firstName;
             return this;
         }
 
-        public Builder setLastName(String lastName) {
+        public UserBuilder setLastName(String lastName) {
             this.lastName = lastName;
             return this;
         }
 
-        public Builder setIdNumber(Long idNumber) {
-            this.idNumber = idNumber;
-            return this;
-        }
-
-        public Builder setPhoneNumber(String phoneNumber) {
+        public UserBuilder setPhoneNumber(String phoneNumber) {
             this.phoneNumber = phoneNumber;
             return this;
         }
 
-        public Builder setEmail(String email) {
+        public UserBuilder setEmail(String email) {
             this.email = email;
             return this;
         }
 
-        public Builder setPassword(String password) {
+        public UserBuilder setPassword(String password) {
             this.password = password;
             return this;
         }
-        public Builder copy(User user) {
+
+        public UserBuilder copy(User user) {
             this.userId = user.userId;
             this.firstName = user.firstName;
             this.lastName = user.lastName;
-            this.idNumber = user.idNumber;
             this.phoneNumber = user.phoneNumber;
             this.email = user.email;
             this.password = user.password;
             return this;
 
         }
+
         public User build() {
             return new User(this);
         }

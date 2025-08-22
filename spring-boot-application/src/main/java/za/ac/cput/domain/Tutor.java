@@ -1,17 +1,12 @@
 package za.ac.cput.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-
 /* Tutor.java
       Tutor POJO class
      Author: Henzley Spogter (230013309)
      Date: 11 May 2025
      */
-@Entity
-public class Tutor {
-    @Id
-    private int tutorID;
+public class Tutor extends User {
+    private String tutorID;
     private double hourlyRate;
     private String bio;
     private double averageRating;
@@ -19,11 +14,21 @@ public class Tutor {
 
     //Default constructor
     public Tutor() {
-
+        super();
     }
 
     //Parameterised constructor
     private Tutor(TutorBuilder builder) {
+
+        // to construct a User object
+        super(new UserBuilder()
+                .setUserId(builder.userId)
+                .setFirstName(builder.firstName)
+                .setLastName(builder.lastName)
+                .setPhoneNumber(builder.phoneNumber)
+                .setEmail(builder.email)
+                .setPassword(builder.password));
+
         this.tutorID = builder.tutorID;
         this.hourlyRate = builder.hourlyRate;
         this.bio = builder.bio;
@@ -31,7 +36,7 @@ public class Tutor {
         this.verificationStatus = builder.verificationStatus;
     }
 
-    public int getTutorID() {
+    public String getTutorID() {
         return tutorID;
     }
 
@@ -53,22 +58,29 @@ public class Tutor {
 
     @Override
     public String toString() {
-        return "Tutor{" +
-                "tutorID=" + tutorID +
-                ", hourlyRate=" + hourlyRate +
-                ", bio='" + bio +
-                '\'' + ", averageRating=" + averageRating +
+        // add User toString() method
+        return super.toString() +
+                "Tutor{" + "tutorID=" + tutorID + "," +
+                " hourlyRate=" + hourlyRate + "," +
+                " bio='" + bio + '\'' +
+                ", averageRating=" + averageRating +
                 ", verificationStatus=" + verificationStatus + '}';
     }
 
-    public static class TutorBuilder {
-        private int tutorID;
+    // Implementation of builder class
+    public static class TutorBuilder extends UserBuilder {
+
+        private String tutorID;
         private double hourlyRate;
         private String bio;
         private double averageRating;
         private boolean verificationStatus;
 
-        public TutorBuilder(int tutorID, double hourlyRate, String bio, double averageRating, boolean verificationStatus) {
+        public TutorBuilder(String tutorID,
+                            double hourlyRate,
+                            String bio,
+                            double averageRating,
+                            boolean verificationStatus) {
             this.tutorID = tutorID;
             this.hourlyRate = hourlyRate;
             this.bio = bio;
@@ -80,7 +92,44 @@ public class Tutor {
 
         }
 
-        public TutorBuilder setTutorID(int tutorID) {
+        @Override
+        public TutorBuilder setUserId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+        @Override
+        public TutorBuilder setFirstName(String firstName) {
+            this.firstName = firstName;
+            return this;
+        }
+
+        @Override
+        public TutorBuilder setLastName(String lastName) {
+            this.lastName = lastName;
+            return this;
+        }
+
+        @Override
+        public TutorBuilder setPhoneNumber(String phoneNumber) {
+            this.phoneNumber = phoneNumber;
+            return this;
+        }
+
+        @Override
+        public TutorBuilder setEmail(String email) {
+            this.email = email;
+            return this;
+        }
+
+        @Override
+        public TutorBuilder setPassword(String password) {
+            this.password = password;
+            return this;
+        }
+
+
+        public TutorBuilder setTutorID(String tutorID) {
             this.tutorID = tutorID;
             return this;
         }
@@ -112,7 +161,7 @@ public class Tutor {
             this.bio = tutor.bio;
             this.averageRating = tutor.averageRating;
             this.verificationStatus = tutor.verificationStatus;
-            return null;
+            return this;
         }
 
         public Tutor build() {

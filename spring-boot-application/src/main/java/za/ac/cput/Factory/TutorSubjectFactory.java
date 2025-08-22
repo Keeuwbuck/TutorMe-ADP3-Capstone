@@ -1,15 +1,15 @@
-package za.ac.cput.Factory;
+package za.ac.cput.factory;
 
 import za.ac.cput.domain.TutorSubject;
 import za.ac.cput.util.Helper;
 
 public class TutorSubjectFactory {
 
-    public static TutorSubject createTutorSubject(String proficiencyLevel,double spesializedRate){
+    public static TutorSubject createTutorSubject(String proficiencyLevel,double specializedRate){
 
         String studentSubjectId= Helper.generateId();
 
-        if(Helper.isValidspesializedRate(spesializedRate)){
+        if(Helper.isValidSpecializedRate(specializedRate)){
             return null;
 
         }
@@ -17,7 +17,7 @@ public class TutorSubjectFactory {
         return new TutorSubject.TutorSubjectBuilder()
                 .setStudentSubjectId(studentSubjectId)
                 .setProficiencyLevel(proficiencyLevel)
-                .setSpesializedRate(spesializedRate)
+                .setSpecializedRate(specializedRate)
                 .build();
 
 

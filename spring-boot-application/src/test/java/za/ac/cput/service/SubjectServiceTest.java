@@ -6,14 +6,14 @@ package za.ac.cput.service;
      Author: Keewan Titus (230778577)
 
      Date: 25 May 2025 */
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import za.ac.cput.Factory.SubjectFactory;
+import za.ac.cput.factory.SubjectFactory;
 import za.ac.cput.domain.Subject;
-import za.ac.cput.domain.University;
 
 import static org.junit.jupiter.api.Assertions.*;
-@TestMethodOrder(Methodorderer.MethodName.class)
+@TestMethodOrder(MethodOrderer.MethodName.class)
 class SubjectServiceTest {
     private SubjectService service;
     private Subject subject= SubjectFactory.createSubject("ADP3","Application Development","ADP","IT","9");

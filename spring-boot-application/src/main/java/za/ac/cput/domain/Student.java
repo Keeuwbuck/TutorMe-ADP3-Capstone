@@ -2,32 +2,42 @@ package za.ac.cput.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jdk.jfr.Enabled;
 
 /* Student.java
       Tutor POJO class
      Author: Henzley Spogter (230013309)
      Date: 11 May 2025
      */
-@Entity
-public class Student {
-    @Id
-    private int studentID;
+
+public class Student extends User {
+
+    private String studentID;
     private String studentNumber;
     private String studentCourse;
     private String yearOfStudy;
 
     public Student() {
+        super();
     }
 
     private Student(StudentBuilder builder) {
+
+        // to construct User object
+        super(new UserBuilder()
+                .setUserId(builder.userId)
+                .setFirstName(builder.firstName)
+                .setLastName(builder.lastName)
+                .setPhoneNumber(builder.phoneNumber)
+                .setEmail(builder.email)
+                .setPassword(builder.password));
+
         this.studentID = builder.studentID;
         this.studentNumber = builder.studentNumber;
         this.studentCourse = builder.studentCourse;
         this.yearOfStudy = builder.yearOfStudy;
     }
 
-    public int getStudentID() {
+    public String getStudentID() {
         return studentID;
     }
 
@@ -45,21 +55,28 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "studentID=" + studentID +
-                ", studentNumber='" + studentNumber + '\'' +
-                ", studentCourse='" + studentCourse + '\'' +
-                ", yearOfStudy='" + yearOfStudy + '\'' +
-                '}';
+        // add User toString() method
+        return super.toString() +
+                "Student [studentID=" + studentID + "," +
+                " studentNumber=" + studentNumber + "," +
+                " studentCourse=" + studentCourse + "," +
+                " yearOfStudy=" + yearOfStudy + "]";
+
     }
 
-    public static class StudentBuilder {
-        private int studentID;
+    //Implementation of the builder class
+    public static class StudentBuilder extends UserBuilder {
+
+        private String studentID;
         private String studentNumber;
         private String studentCourse;
         private String yearOfStudy;
 
-        public StudentBuilder(int studentID, String studentNumber, String studentCourse, String yearOfStudy) {
+
+        public StudentBuilder(String studentID,
+                              String studentNumber,
+                              String studentCourse,
+                              String yearOfStudy) {
             this.studentID = studentID;
             this.studentNumber = studentNumber;
             this.studentCourse = studentCourse;
@@ -67,10 +84,45 @@ public class Student {
         }
 
         public StudentBuilder() {
-
         }
 
-        public StudentBuilder setStudentID(int studentID) {
+        @Override
+        public StudentBuilder setUserId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+        @Override
+        public StudentBuilder setFirstName(String firstName) {
+            this.firstName = firstName;
+            return this;
+        }
+
+        @Override
+        public StudentBuilder setLastName(String lastName) {
+            this.lastName = lastName;
+            return this;
+        }
+
+        @Override
+        public StudentBuilder setPhoneNumber(String phoneNumber) {
+            this.phoneNumber = phoneNumber;
+            return this;
+        }
+
+        @Override
+        public StudentBuilder setEmail(String email) {
+            this.email = email;
+            return this;
+        }
+
+        @Override
+        public StudentBuilder setPassword(String password) {
+            this.password = password;
+            return this;
+        }
+
+        public StudentBuilder setStudentID(String studentID) {
             this.studentID = studentID;
             return this;
         }
@@ -95,7 +147,7 @@ public class Student {
             this.studentNumber = student.studentNumber;
             this.studentCourse = student.studentCourse;
             this.yearOfStudy = student.yearOfStudy;
-            return null;
+            return this;
         }
 
         public Student build() {

@@ -5,18 +5,16 @@ package za.ac.cput.service;
     Date: 25 May 2025
  */
 
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import za.ac.cput.Factory.UniversityFactory;
+import za.ac.cput.factory.UniversityFactory;
 import za.ac.cput.domain.University;
-import za.ac.cput.service.UniversityService;
-import za.ac.cput.repository.UniversityRepository;
-import org.springframework.stereotype.Service;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 
-@TestMethodOrder(Methodorderer.MethodName.class)
+@TestMethodOrder(MethodOrderer.MethodName.class)
 public class UniversityServiceTest {
     private UniversityService service;
     private University university = UniversityFactory.createUniversity("CPUT", "Cape Town", "D6");
