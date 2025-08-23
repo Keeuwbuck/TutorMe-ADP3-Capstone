@@ -32,8 +32,8 @@ public class TutorFactory {
 
         // check for null or empty
         if (Helper.isNullOrEmpty(bio) ||
-        Helper.isNullOrEmpty(String.valueOf(hourlyRate)) ||
-        Helper.isNullOrEmpty(String.valueOf(averageRating))) {
+                Helper.isNullOrEmpty(String.valueOf(hourlyRate)) ||
+                Helper.isNullOrEmpty(String.valueOf(averageRating))) {
             return null;
         }
 

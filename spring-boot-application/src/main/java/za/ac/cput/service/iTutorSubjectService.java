@@ -8,6 +8,7 @@ import java.util.Optional;
 
 public interface iTutorSubjectService {
     List<Subject> getAll();
+
     Optional<Subject> getSubjectId(String subjectId);
 
 }

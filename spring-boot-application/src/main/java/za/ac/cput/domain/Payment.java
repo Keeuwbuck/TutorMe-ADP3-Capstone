@@ -9,6 +9,7 @@ package za.ac.cput.domain;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+
 @Entity
 public class Payment {
     @Id
@@ -19,7 +20,7 @@ public class Payment {
     private String status;
     private String transactionID;
 
-  //  @OneToOne
+    //  @OneToOne
 //    @JoinColumn(name = "user_id") //
 //    private User user;
     public Payment() {
@@ -90,18 +91,22 @@ public class Payment {
             this.amount = amount;
             return this;
         }
+
         public Payment.PaymentBuilder setPaymentDate(LocalDateTime paymentDate) {
             this.paymentDate = paymentDate;
             return this;
         }
+
         public Payment.PaymentBuilder setPaymentMethod(String paymentMethod) {
             this.paymentMethod = paymentMethod;
             return this;
         }
+
         public Payment.PaymentBuilder setStatus(String status) {
             this.status = status;
             return this;
         }
+
         public Payment.PaymentBuilder setTransactionID(String transactionID) {
             this.transactionID = transactionID;
             return this;

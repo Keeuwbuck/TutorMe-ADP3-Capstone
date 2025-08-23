@@ -4,13 +4,16 @@ import za.ac.cput.domain.Subject;
 import za.ac.cput.util.Helper;
 
 public class SubjectFactory {
-    public static Subject createSubject(String subjectCode,String subjectName,String subjectDescription
-            ,String department,String difficultyLevel){
+    public static Subject createSubject(String subjectCode,
+                                        String subjectName,
+                                        String subjectDescription,
+                                        String department,
+                                        String difficultyLevel) {
 
-        if(Helper.isNullOrEmpty(subjectCode)){
+        if (Helper.isNullOrEmpty(subjectCode)) {
             return null;
         }
-        if(Helper.isNullOrEmpty(difficultyLevel)){
+        if (Helper.isNullOrEmpty(difficultyLevel)) {
             return null;
         }
 
