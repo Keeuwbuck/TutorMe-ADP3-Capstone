@@ -1,11 +1,16 @@
 package za.ac.cput.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
 /* Tutor.java
       Tutor POJO class
      Author: Henzley Spogter (230013309)
      Date: 11 May 2025
      */
+@Entity
 public class Tutor extends User {
+    @Id
     private String tutorID;
     private double hourlyRate;
     private String bio;

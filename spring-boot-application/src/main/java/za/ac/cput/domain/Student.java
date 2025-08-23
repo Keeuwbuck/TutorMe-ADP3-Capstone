@@ -8,9 +8,9 @@ import jakarta.persistence.Id;
      Author: Henzley Spogter (230013309)
      Date: 11 May 2025
      */
-
+@Entity
 public class Student extends User {
-
+    @Id
     private String studentID;
     private String studentNumber;
     private String studentCourse;
