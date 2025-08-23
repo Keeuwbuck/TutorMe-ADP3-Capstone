@@ -16,8 +16,4 @@ import java.util.Optional;
 
 @Repository
 public interface TutorSubjectRepository extends JpaRepository<TutorSubject, String> {
-    Optional<TutorSubject> findbySubjectId(String subjectId);
-
-    List<TutorSubject> getAll();
-
 }

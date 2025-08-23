@@ -6,44 +6,47 @@ package za.ac.cput.service;
      Author: Keewan Titus (230778577)
 
      Date: 25 May 2025 */
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import za.ac.cput.domain.Subject;
 import za.ac.cput.domain.TutorSubject;
+import za.ac.cput.repository.TutorSubjectRepository;
 
 import java.util.List;
-import java.util.Optional;
+
 
 @Service
-public class TutorSubjectService implements iTutorSubjectService {
+public class TutorSubjectService implements ITutorSubjectService {
+
     @Autowired
-    public static TutorSubject service;
-    private TutorSubjectService repository;
+    private static ITutorSubjectService service;
 
+    private TutorSubjectRepository repository;
+
+    @Override
     public TutorSubject create(TutorSubject tutorSubject) {
-        return repository.create(tutorSubject);
+        return this.repository.save(tutorSubject);
     }
 
+    @Override
     public TutorSubject read(String subjectCode) {
-        return repository.read(subjectCode);
-
+        return this.repository.findById(subjectCode).orElse(null);
     }
 
+    @Override
     public TutorSubject update(TutorSubject subjectName) {
-        repository.update(subjectName);
-        return subjectName;
+        return this.repository.save(subjectName);
     }
 
+    @Override
     public boolean delete(String subjectCode) {
-        this.repository.delete(subjectCode);
+        this.repository.deleteById(subjectCode);
         return true;
     }
 
-    public List<Subject> getAll() {
-        return this.repository.getAll();
-    }
-    public Optional<Subject> getSubjectId(String subjectId) {
-        return Optional.empty();
+    @Override
+    public List<TutorSubject> getAll() {
+        return this.repository.findAll();
     }
 }
 
