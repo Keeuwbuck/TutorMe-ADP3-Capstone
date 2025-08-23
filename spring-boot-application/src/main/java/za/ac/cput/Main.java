@@ -1,14 +1,16 @@
 package za.ac.cput;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import za.ac.cput.domain.Student;
 import za.ac.cput.domain.Tutor;
 import za.ac.cput.factory.StudentFactory;
 import za.ac.cput.factory.TutorFactory;
 
-//@SpringBootApplication
+@SpringBootApplication
 public class Main {
     public static void main(String[] args) {
-//        SpringApplication.run(Main.class, args);
+        SpringApplication.run(Main.class, args);
 
         // test creation of student object
         Student student1 = StudentFactory.createStudent(
@@ -20,7 +22,7 @@ public class Main {
                 "230013309",
                 "DPICT: Multimedia",
                 "3");
-        System.out.println(student1);
+//        System.out.println(student1);
 
 
         // test creation of tutor object
