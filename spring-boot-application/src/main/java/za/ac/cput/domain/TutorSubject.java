@@ -69,12 +69,15 @@ public class TutorSubject {
             return this;
         }
 
-        public TutorSubject build() {
-            return new TutorSubject(this);
+        public TutorSubjectBuilder copy(TutorSubject tutor) {
+            this.studentSubjectId = tutor.studentSubjectId;
+            this.proficiencyLevel = tutor.proficiencyLevel;
+            this.specializedRate = tutor.specializedRate;
+            return this;
         }
 
-        public TutorSubjectBuilder copy(TutorSubject tutor) {
-            return null;
+        public TutorSubject build() {
+            return new TutorSubject(this);
         }
     }
 }
