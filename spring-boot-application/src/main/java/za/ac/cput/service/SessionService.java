@@ -30,18 +30,18 @@ public class SessionService implements ISessionService {
         return this.repository.findById(id).orElse(null);
     }
 
-    //@Override
+    @Override
     public Session update(Session session) {
         return this.repository.save(session);
     }
 
-    //@Override
+    @Override
     public boolean delete(String id) {
         this.repository.deleteById(id);
         return true;
     }
 
-    //@Override
+    @Override
     public List<Session> getAll() {
         return this.repository.findAll();
     }
