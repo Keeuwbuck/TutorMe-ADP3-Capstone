@@ -5,6 +5,7 @@ import Tutors from "./pages/Tutors";
 import Bookings from "./pages/Bookings";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import User from "./pages/User";
 import "./App.css";
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
                             <li><Link to="/bookings" className="hover:underline">Bookings</Link></li>
                             <li><Link to="/login" className="hover:underline">Login</Link></li>
                             <li><Link to="/register" className="hover:underline">Register</Link></li>
+                            <li><Link to="/User" className="hover:underline">User</Link></li>
                         </ul>
                     </nav>
                 </header>
@@ -35,6 +37,7 @@ export default function App() {
                         <Route path="/bookings" element={<Bookings />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />
+                        <Route path="/user" element={<User />} />
                     </Routes>
 
                     {/* Demo Counter from Vite starter */}
