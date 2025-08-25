@@ -6,6 +6,8 @@ import Bookings from "./pages/Bookings";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import User from "./pages/User";
+import CrudDisplay from "./pages/CrudDisplay";
+import CrudModify from "./pages/CrudModify";
 import "./App.css";
 
 export default function App() {
@@ -25,6 +27,8 @@ export default function App() {
                             <li><Link to="/login" className="hover:underline">Login</Link></li>
                             <li><Link to="/register" className="hover:underline">Register</Link></li>
                             <li><Link to="/User" className="hover:underline">User</Link></li>
+                            <li><Link to="/crud-display" className="hover:underline">CRUD Display</Link></li>
+                            <li><Link to="/crud-modify" className="hover:underline">CRUD Modify</Link></li>
                         </ul>
                     </nav>
                 </header>
@@ -38,6 +42,8 @@ export default function App() {
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />
                         <Route path="/user" element={<User />} />
+                        <Route path="/crud-display" element={<CrudDisplay />} />
+                        <Route path="/crud-modify" element={<CrudModify />} />
                     </Routes>
 
                     {/* Demo Counter from Vite starter */}
