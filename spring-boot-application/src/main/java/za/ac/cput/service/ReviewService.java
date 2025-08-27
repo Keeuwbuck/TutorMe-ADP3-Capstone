@@ -1,51 +1,53 @@
-
-
-
 package za.ac.cput.service;
-import za.ac.cput.domain.Review;
-import za.ac.cput.repository.ReviewRepository;
-import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import za.ac.cput.domain.Review;
+import za.ac.cput.repository.ReviewRepository;
 
+import java.util.List;
 /* ReviewService.java
       Review service class
      Author: Cameron Savage (230582567)
      Date: 27 August 2025
      */
+
+
+
 @Service
 public class ReviewService implements IReviewService {
 
-    private static IReviewService service;
-    private ReviewRepository repository;
+    private final ReviewRepository reviewRepository;
 
-    //@Override
-    public Review create(Review review) {
-        return this.repository.save(review);
+    @Autowired
+    public ReviewService(ReviewRepository reviewRepository) {
+        this.reviewRepository = reviewRepository;
     }
 
-    //@Override
-    public Review read(String id) {
-        return this.repository.findById(id).orElse(null);
+    @Override
+    public Review createReview(Review review) {
+        return reviewRepository.save(review);
     }
 
-    //@Override
-    public Review update(Review review) {
-        return this.repository.save(review);
+    @Override
+    public Review readReview(String reviewID) {
+        return reviewRepository.findById(reviewID).orElse(null);
     }
 
-    //@Override
-    public boolean delete(String id) {
-        this.repository.deleteById(id);
-        return true;
+    @Override
+    public Review updateReview(Review review) {
+        return reviewRepository.save(review);
     }
 
-    //@Override
-    public List<Review> getAll() {
-        return this.repository.findAll();
+    @Override
+    public void deleteReview(String reviewID) {
+        reviewRepository.deleteById(reviewID);
+    }
+
+    @Override
+    public List<Review> getAllReviews() {
+        return reviewRepository.findAll();
     }
 }
-
-
 
 
