@@ -6,37 +6,48 @@ import za.ac.cput.domain.Review;
 import za.ac.cput.repository.ReviewRepository;
 
 import java.util.List;
+/* ReviewService.java
+      Review service class
+     Author: Cameron Savage (230582567)
+     Date: 27 August 2025
+     */
+
+
 
 @Service
 public class ReviewService implements IReviewService {
+
+    private final ReviewRepository reviewRepository;
+
     @Autowired
-    private static ReviewService service;
-
-    private ReviewRepository repository;
-
-    @Override
-    public Review create(Review review) {
-        return this.repository.save(review);
+    public ReviewService(ReviewRepository reviewRepository) {
+        this.reviewRepository = reviewRepository;
     }
 
     @Override
-    public Review read(String reviewID) {
-        return this.repository.findById(reviewID).orElse(null);
+    public Review createReview(Review review) {
+        return reviewRepository.save(review);
     }
 
     @Override
-    public Review update(Review review) {
-        return this.repository.save(review);
+    public Review readReview(String reviewID) {
+        return reviewRepository.findById(reviewID).orElse(null);
     }
 
     @Override
-    public boolean delete(String reviewID) {
-        this.repository.deleteById(reviewID);
-        return true;
+    public Review updateReview(Review review) {
+        return reviewRepository.save(review);
     }
 
     @Override
-    public List<Review> getAll() {
-        return this.repository.findAll();
+    public void deleteReview(String reviewID) {
+        reviewRepository.deleteById(reviewID);
+    }
+
+    @Override
+    public List<Review> getAllReviews() {
+        return reviewRepository.findAll();
     }
 }
+
+

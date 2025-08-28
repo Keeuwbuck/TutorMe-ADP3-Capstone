@@ -7,37 +7,45 @@ import za.ac.cput.repository.PaymentRepository;
 
 import java.util.List;
 
+/* PaymentService.java
+      payment service class
+     Author: Cameron Savage (230582567)
+     Date: 27 August 2025
+     */
+
+
 @Service
 public class PaymentService implements IPaymentService {
 
+    private final PaymentRepository paymentRepository;
+
     @Autowired
-    private static PaymentService service;
-
-    private PaymentRepository repository;
-
-    @Override
-    public Payment create(Payment payment) {
-        return this.repository.save(payment);
+    public PaymentService(PaymentRepository paymentRepository) {
+        this.paymentRepository = paymentRepository;
     }
 
     @Override
-    public Payment read(String paymentID) {
-        return this.repository.findById(paymentID).orElse(null);
+    public Payment createPayment(Payment payment) {
+        return paymentRepository.save(payment);
     }
 
     @Override
-    public Payment update(Payment payment) {
-        return this.repository.save(payment);
+    public Payment readPayment(String id) {
+        return paymentRepository.findById(id).orElse(null);
     }
 
     @Override
-    public boolean delete(String paymentID) {
-        this.repository.deleteById(paymentID);
-        return true;
+    public Payment updatePayment(Payment payment) {
+        return paymentRepository.save(payment);
     }
 
     @Override
-    public List<Payment> getAll() {
-        return this.repository.findAll();
+    public void deletePayment(String id) {
+        paymentRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Payment> getAllPayments() {
+        return paymentRepository.findAll();
     }
 }
