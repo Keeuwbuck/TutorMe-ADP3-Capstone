@@ -1,7 +1,9 @@
 package za.ac.cput.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 import za.ac.cput.domain.Review;
 import za.ac.cput.service.ReviewService;
 
@@ -28,10 +30,15 @@ public class ReviewController {
         return reviewService.createReview(review);
     }
 
-    @GetMapping("/read/{reviewID}")
-    public Review readReview(@PathVariable String reviewID) {
-        return reviewService.readReview(reviewID);
-    }
+  //  @GetMapping("/read/{reviewID}")
+  //  public Review readReview(@PathVariable String reviewID) {
+  //      return reviewService.readReview(reviewID);
+  //  }
+  @GetMapping("/read/{reviewID}")
+  public Review readReview(@PathVariable String reviewID) {
+      return reviewService.readReview(reviewID)
+              .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Review not found"));
+  }
 
     @PutMapping("/update")
     public Review updateReview(@RequestBody Review review) {

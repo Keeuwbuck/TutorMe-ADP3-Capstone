@@ -6,6 +6,7 @@ import za.ac.cput.domain.Review;
 import za.ac.cput.repository.ReviewRepository;
 
 import java.util.List;
+import java.util.Optional;
 /* ReviewService.java
       Review service class
      Author: Cameron Savage (230582567)
@@ -29,9 +30,13 @@ public class ReviewService implements IReviewService {
         return reviewRepository.save(review);
     }
 
+    //@Override
+   // public Review readReview(String reviewID) {
+   //     return reviewRepository.findById(reviewID).orElse(null);
+   // }
     @Override
-    public Review readReview(String reviewID) {
-        return reviewRepository.findById(reviewID).orElse(null);
+    public Optional<Review> readReview(String id) {
+        return reviewRepository.findById(id);
     }
 
     @Override

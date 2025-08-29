@@ -1,7 +1,9 @@
 package za.ac.cput.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 import za.ac.cput.domain.Payment;
 import za.ac.cput.service.PaymentService;
 
@@ -31,7 +33,8 @@ public class PaymentController {
 
     @GetMapping("/read/{paymentID}")
     public Payment readPayment(@PathVariable String paymentID) {
-        return paymentService.readPayment(paymentID);
+        return paymentService.readPayment(paymentID)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Payment not found"));
     }
 
     @PutMapping("/update")

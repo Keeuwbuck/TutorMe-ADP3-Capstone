@@ -1,11 +1,10 @@
 package za.ac.cput.controller;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.*;
 
 import za.ac.cput.domain.Review;
@@ -13,16 +12,23 @@ import za.ac.cput.factory.ReviewFactory;
 
 import java.time.LocalDateTime;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ReviewControllerTest {
 
     private static Review review;
 
+    @LocalServerPort
+    private int port;
+
     @Autowired
     private TestRestTemplate restTemplate;
 
-    private static final String BASE_URL = "http://localhost:8080/review";
+    private String getBaseUrl() {
+        return "http://localhost:" + port + "/TutorMe-ADP3-Capstone/spring-boot-application/review";
+    }
 
     @BeforeAll
     public static void setup() {
@@ -37,7 +43,7 @@ public class ReviewControllerTest {
     @Test
     @Order(1)
     void createReview() {
-        String url = BASE_URL + "/create";
+        String url = getBaseUrl() + "/create";
         ResponseEntity<Review> response = restTemplate.postForEntity(url, review, Review.class);
         assertNotNull(response.getBody());
         review = response.getBody(); // store created review
@@ -47,7 +53,7 @@ public class ReviewControllerTest {
     @Test
     @Order(2)
     void readReview() {
-        String url = BASE_URL + "/read/" + review.getReviewID();
+        String url = getBaseUrl() + "/read/" + review.getReviewID();
         ResponseEntity<Review> response = restTemplate.getForEntity(url, Review.class);
         assertNotNull(response.getBody());
         assertEquals(review.getReviewID(), response.getBody().getReviewID());
@@ -62,22 +68,22 @@ public class ReviewControllerTest {
                 .setComment("Great service, but delivery was late.") // update comment
                 .build();
 
-        String url = BASE_URL + "/update";
+        String url = getBaseUrl() + "/update";
         ResponseEntity<Review> response = restTemplate.exchange(
                 url, HttpMethod.PUT, new HttpEntity<>(updatedReview), Review.class);
 
         assertNotNull(response.getBody());
-        assertEquals(updatedReview.getReviewID(), response.getBody().getReviewID());
+        assertEquals(updatedReview.getComment(), response.getBody().getComment());
         System.out.println("Updated_Review: " + response.getBody());
     }
 
     @Test
     @Order(4)
     void deleteReview() {
-        String url = BASE_URL + "/delete/" + review.getReviewID();
+        String url = getBaseUrl() + "/delete/" + review.getReviewID();
         restTemplate.delete(url);
 
-        ResponseEntity<Review> response = restTemplate.getForEntity(BASE_URL + "/read/" + review.getReviewID(), Review.class);
+        ResponseEntity<Review> response = restTemplate.getForEntity(getBaseUrl() + "/read/" + review.getReviewID(), Review.class);
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
         System.out.println("Deleted_Review: Status " + response.getStatusCode());
     }
