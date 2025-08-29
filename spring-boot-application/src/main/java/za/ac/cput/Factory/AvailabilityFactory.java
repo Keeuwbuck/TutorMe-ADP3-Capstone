@@ -1,5 +1,5 @@
 
-package za.ac.cput.factory;
+package za.ac.cput.Factory;
 /*  AvailabilityFactory.java
     Availability Factory class
     Author: Hope Ringane (221174109)

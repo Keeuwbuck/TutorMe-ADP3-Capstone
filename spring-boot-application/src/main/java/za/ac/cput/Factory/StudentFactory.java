@@ -4,10 +4,11 @@
      Date: 18 May 2025
      */
 
-package za.ac.cput.factory;
+package za.ac.cput.Factory;
 
 import za.ac.cput.domain.Student;
 import za.ac.cput.domain.User;
+import za.ac.cput.Factory.UserFactory;
 import za.ac.cput.util.Helper;
 
 public class StudentFactory {
