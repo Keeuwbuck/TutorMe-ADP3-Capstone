@@ -2,6 +2,7 @@ package za.ac.cput.service;
 
 import za.ac.cput.domain.Review;
 import java.util.List;
+import java.util.Optional;
 /* IReviewService.java
       Review service interface
      Author: Cameron Savage (230582567)
@@ -11,7 +12,7 @@ import java.util.List;
 
 public interface IReviewService {
     Review createReview(Review review);
-    Review readReview(String reviewID);
+    Optional<Review> readReview(String reviewID);
     Review updateReview(Review review);
     void deleteReview(String reviewID);
     List<Review> getAllReviews();

@@ -6,6 +6,7 @@ import za.ac.cput.domain.Payment;
 import za.ac.cput.repository.PaymentRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 /* PaymentService.java
       payment service class
@@ -27,12 +28,16 @@ public class PaymentService implements IPaymentService {
     @Override
     public Payment createPayment(Payment payment) {
         return paymentRepository.save(payment);
-    }
+   }
+  @Override
+  public Optional<Payment> readPayment(String id) {
+      return paymentRepository.findById(id);
+  }
 
-    @Override
-    public Payment readPayment(String id) {
-        return paymentRepository.findById(id).orElse(null);
-    }
+  //  @Override
+  //  public Payment readPayment(String id) {
+   //     return paymentRepository.findById(id).orElse(null);
+   // }
 
     @Override
     public Payment updatePayment(Payment payment) {
