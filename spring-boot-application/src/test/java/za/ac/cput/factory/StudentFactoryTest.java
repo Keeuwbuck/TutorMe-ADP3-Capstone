@@ -40,35 +40,31 @@ class StudentFactoryTest {
 
     @Test
     void createStudent_withInvalidStudentNumber_shouldThrow() {
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            StudentFactory.createStudent(
-                    "Jane",
-                    "Doe",
-                    "0685050842",
-                    "janedoe@gmail.com",
-                    "Password123!",
-                    "INVALID#",       // invalid format
-                    "DPICT: Applications Development",
-                    "3"
-            );
-        });
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> StudentFactory.createStudent(
+                "Jane",
+                "Doe",
+                "0685050842",
+                "janedoe@gmail.com",
+                "Password123!",
+                "INVALID#",       // invalid format
+                "DPICT: Applications Development",
+                "3"
+        ));
         assertTrue(exception.getMessage().contains("Invalid student number"));
     }
 
     @Test
     void createStudent_withEmptyCourse_shouldThrow() {
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            StudentFactory.createStudent(
-                    "Jane",
-                    "Doe",
-                    "0685050842",
-                    "janedoe@gmail.com",
-                    "Password123!",
-                    "ST12345",
-                    "",                // empty course
-                    "3"
-            );
-        });
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> StudentFactory.createStudent(
+                "Jane",
+                "Doe",
+                "0685050842",
+                "janedoe@gmail.com",
+                "Password123!",
+                "ST12345",
+                "",                // empty course
+                "3"
+        ));
         assertTrue(exception.getMessage().contains("Missing student-specific fields"));
     }
 }
