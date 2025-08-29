@@ -14,6 +14,13 @@ import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/* ReviewControllerTest.java
+      Review Controller Test class
+     Author: Cameron Savage (230582567)
+     Date: 29 August 2025
+     */
+
+
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ReviewControllerTest {
@@ -65,7 +72,7 @@ public class ReviewControllerTest {
     void updateReview() {
         Review updatedReview = new Review.ReviewBuilder()
                 .copy(review)
-                .setComment("Great service, but delivery was late.") // update comment
+                .setComment("Great service, but was incoherent at times.") // update comment
                 .build();
 
         String url = getBaseUrl() + "/update";

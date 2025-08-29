@@ -14,6 +14,12 @@ import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/* PaymentControllerTest.java
+      Payment Controller Test class
+     Author: Cameron Savage (230582567)
+     Date: 29 August 2025
+     */
+
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class PaymentControllerTest {
