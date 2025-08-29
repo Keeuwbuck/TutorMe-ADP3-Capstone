@@ -5,9 +5,15 @@
 
 package za.ac.cput.domain;
 
+import jakarta.persistence.*;
+
 import java.time.ZonedDateTime;
 
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+
 public abstract class User {
+    @Id
     protected String userId;
     protected String firstName;
     protected String lastName;
