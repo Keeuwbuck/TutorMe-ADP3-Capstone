@@ -86,6 +86,13 @@ public class Review {
             this.comment = comment;
             this.dateSubmitted = dateSubmitted;
         }
+        public ReviewBuilder copy(Review review) {
+            this.reviewID = review.reviewID;
+            this.rating = review.rating;
+            this.comment = review.comment;
+            this.dateSubmitted = review.dateSubmitted;
+            return this;
+        }
 
         public Review build() {
             return new Review(this);
