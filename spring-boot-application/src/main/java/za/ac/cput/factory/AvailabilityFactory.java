@@ -5,11 +5,14 @@ package za.ac.cput.Factory;
     Author: Hope Ringane (221174109)
     Date: 18 May 2025
  */
+
 import za.ac.cput.domain.Availability;
 import za.ac.cput.util.Helper;
 
 public class AvailabilityFactory {
-    public static Availability createAvailability(String dayOfWeek, String startTime, String endTime) {
+    public static Availability createAvailability(String dayOfWeek,
+                                                  String startTime,
+                                                  String endTime) {
 
         String availabilityId = Helper.generateId();
 

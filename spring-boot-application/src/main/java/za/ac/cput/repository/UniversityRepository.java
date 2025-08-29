@@ -8,9 +8,10 @@ package za.ac.cput.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import za.ac.cput.domain.University;
+
 import java.util.List;
 
 @Repository
-public interface UniversityRepository extends JpaRepository<University, String>{
+public interface UniversityRepository extends JpaRepository<University, String> {
 
 }

@@ -1,4 +1,8 @@
 package za.ac.cput.domain;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
 /* TutorSubject.java
 
      TutorSubject POJO class
@@ -6,8 +10,10 @@ package za.ac.cput.domain;
      Author: Keewan Titus (230778577)
 
      Date: 04 May 2025 */
-
+@Entity
 public class TutorSubject {
+    @Id
+    private String tutorID;
     private String studentSubjectId;
     private String proficiencyLevel;
     private double specializedRate;
@@ -16,7 +22,9 @@ public class TutorSubject {
         this.studentSubjectId = builder.studentSubjectId;
         this.proficiencyLevel = builder.proficiencyLevel;
         this.specializedRate = builder.specializedRate;
+    }
 
+    public TutorSubject() {
 
     }
 
@@ -61,12 +69,15 @@ public class TutorSubject {
             return this;
         }
 
-        public TutorSubject build() {
-            return new TutorSubject(this);
+        public TutorSubjectBuilder copy(TutorSubject tutor) {
+            this.studentSubjectId = tutor.studentSubjectId;
+            this.proficiencyLevel = tutor.proficiencyLevel;
+            this.specializedRate = tutor.specializedRate;
+            return this;
         }
 
-        public TutorSubjectBuilder copy(TutorSubject tutor) {
-            return null;
+        public TutorSubject build() {
+            return new TutorSubject(this);
         }
     }
 }

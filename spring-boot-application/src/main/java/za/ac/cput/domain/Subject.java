@@ -1,4 +1,8 @@
 package za.ac.cput.domain;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
 /* Subject.java
 
      Subject POJO class
@@ -6,8 +10,9 @@ package za.ac.cput.domain;
      Author: Keewan Titus (230778577)
 
      Date: 04 May 2025 */
-
+@Entity
 public class Subject {
+    @Id
     private String subjectCode;
     private String subjectName;
     private String subjectDescription;
@@ -19,7 +24,11 @@ public class Subject {
         this.subjectName = builder.subjectName;
         this.subjectDescription = builder.subjectDescription;
         this.department = builder.department;
-        this.difficultyLevel =builder.difficultyLevel;
+        this.difficultyLevel = builder.difficultyLevel;
+
+    }
+
+    public Subject() {
 
     }
 
@@ -42,11 +51,13 @@ public class Subject {
     public String getDifficultyLevel() {
         return difficultyLevel;
     }
+
     @Override
     public String toString() {
         return "Subject= " + subjectCode + ", subjectName= " + subjectName + ", subjectDescription= "
                 + subjectDescription + ", department= " + department + ", difficultyLevel= " + difficultyLevel;
     }
+
     public static class SubjectBuilder {
         private String subjectCode;
         private String subjectName;
@@ -79,6 +90,7 @@ public class Subject {
             this.difficultyLevel = difficultyLevel;
             return this;
         }
+
         public Subject build() {
             return new Subject(this);
         }

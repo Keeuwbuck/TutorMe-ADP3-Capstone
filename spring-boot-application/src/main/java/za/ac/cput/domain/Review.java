@@ -10,6 +10,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 import java.time.LocalDateTime;
+
 @Entity
 public class Review {
     @Id
@@ -23,6 +24,7 @@ public class Review {
 //    private User user;
     public Review() {
     }
+
     private Review(ReviewBuilder builder) {
         this.reviewID = builder.reviewID;
         this.rating = builder.rating;
@@ -45,6 +47,7 @@ public class Review {
     public LocalDateTime getDateSubmitted() {
         return dateSubmitted;
     }
+
     @Override
     public String toString() {
         return "Review{" +
@@ -61,20 +64,24 @@ public class Review {
         private String comment;
         private LocalDateTime dateSubmitted;
 
-        public ReviewBuilder() {}
+        public ReviewBuilder() {
+        }
 
         public Review.ReviewBuilder setReviewID(String reviewID) {
             this.reviewID = reviewID;
             return this;
         }
+
         public Review.ReviewBuilder setRating(int rating) {
             this.rating = rating;
             return this;
         }
+
         public Review.ReviewBuilder setComment(String comment) {
             this.comment = comment;
             return this;
         }
+
         public Review.ReviewBuilder setDateSubmitted(LocalDateTime dateSubmitted) {
             this.dateSubmitted = dateSubmitted;
             return this;
@@ -85,6 +92,13 @@ public class Review {
             this.rating = rating;
             this.comment = comment;
             this.dateSubmitted = dateSubmitted;
+        }
+        public ReviewBuilder copy(Review review) {
+            this.reviewID = review.reviewID;
+            this.rating = review.rating;
+            this.comment = review.comment;
+            this.dateSubmitted = review.dateSubmitted;
+            return this;
         }
 
         public Review build() {
