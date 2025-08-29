@@ -7,19 +7,15 @@ package za.ac.cput.factory;
  */
 
 
-import za.ac.cput.domain.User;
 import za.ac.cput.util.Helper;
 
-public class UserFactory {
+public final class UserFactory {
 
-    public static User createUser(String firstName,
-                                  String lastName,
-                                  String phoneNumber,
-                                  String email,
-                                  String password) {
-
-        // generate unique userId
-        String userId = Helper.generateId();
+    public static String validateCommonAndGenerateId(String firstName,
+                                                     String lastName,
+                                                     String phoneNumber,
+                                                     String email,
+                                                     String password) {
 
         // check if values are null or empty
         if (Helper.isNullOrEmpty(firstName) ||
@@ -27,42 +23,36 @@ public class UserFactory {
                 Helper.isNullOrEmpty(phoneNumber) ||
                 Helper.isNullOrEmpty(email) ||
                 Helper.isNullOrEmpty(password)) {
-            return null;
+            throw new IllegalArgumentException("Missing required fields");
         }
 
         // check if firstName is valid
         if (!Helper.isValidFirstName(firstName)) {
-            return null;
+            throw new IllegalArgumentException("Invalid first name");
         }
 
         // check if lastName is valid
         if (!Helper.isValidLastName(lastName)) {
-            return null;
+            throw new IllegalArgumentException("Invalid last name");
         }
 
         // check if phoneNumber is valid
         if (!Helper.isValidPhone(phoneNumber)) {
-            return null;
+            throw new IllegalArgumentException("Invalid phone number");
         }
 
         // check if email is valid
         if (!Helper.isValidEmail(email)) {
-            return null;
+            throw new IllegalArgumentException("Invalid email");
         }
 
         // check if password is valid
         if (!Helper.isValidPassword(password)) {
-            return null;
+            throw new IllegalArgumentException("Invalid password");
         }
 
-        return new User.UserBuilder()
-                .setUserId(userId)
-                .setFirstName(firstName)
-                .setLastName(lastName)
-                .setPhoneNumber(phoneNumber)
-                .setEmail(email)
-                .setPassword(password)
-                .build();
+        // generate unique userId
+        return Helper.generateId(); // userId
     }
 }
 
