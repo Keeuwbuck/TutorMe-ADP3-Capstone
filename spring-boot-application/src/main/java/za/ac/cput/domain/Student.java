@@ -3,6 +3,8 @@ package za.ac.cput.domain;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
+import java.time.ZonedDateTime;
+
 /* Student.java
       Tutor POJO class
      Author: Henzley Spogter (230013309)
@@ -21,23 +23,20 @@ public class Student extends User {
     }
 
     private Student(StudentBuilder builder) {
-
-        // to construct User object
-        super(new UserBuilder()
-                .setUserId(builder.userId)
-                .setFirstName(builder.firstName)
-                .setLastName(builder.lastName)
-                .setPhoneNumber(builder.phoneNumber)
-                .setEmail(builder.email)
-                .setPassword(builder.password));
-
-        this.studentID = builder.studentID;
+        this.userId = builder.userId;
+        this.firstName = builder.firstName;
+        this.lastName = builder.lastName;
+        this.phoneNumber = builder.phoneNumber;
+        this.email = builder.email;
+        this.password = builder.password;
+        this.createdAt = builder.createdAt;
+        this.studentID = builder.studentId;
         this.studentNumber = builder.studentNumber;
         this.studentCourse = builder.studentCourse;
         this.yearOfStudy = builder.yearOfStudy;
     }
 
-    public String getStudentID() {
+    public String getStudentId() {
         return studentID;
     }
 
@@ -55,75 +54,76 @@ public class Student extends User {
 
     @Override
     public String toString() {
-        // add User toString() method
-        return super.toString() +
-                "Student [studentID=" + studentID + "," +
-                " studentNumber=" + studentNumber + "," +
-                " studentCourse=" + studentCourse + "," +
-                " yearOfStudy=" + yearOfStudy + "]";
-
+        return
+                "userId='" + userId + '\'' +
+                        ", firstName='" + firstName + '\'' +
+                        ", lastName='" + lastName + '\'' +
+                        ", phoneNumber='" + phoneNumber + '\'' +
+                        ", email='" + email + '\'' +
+                        ", password='" + password + '\'' +
+                        ", createdAt=" + createdAt + '}' +
+                        "Student{" +
+                        "studentID='" + studentID + '\'' +
+                        ", studentNumber='" + studentNumber + '\'' +
+                        ", studentCourse='" + studentCourse + '\'' +
+                        ", yearOfStudy='" + yearOfStudy + '\'';
     }
 
     //Implementation of the builder class
-    public static class StudentBuilder extends UserBuilder {
+    public static class StudentBuilder {
 
-        private String studentID;
+        //User attributes
+        private String userId;
+        private String firstName;
+        private String lastName;
+        private String phoneNumber;
+        private String email;
+        private String password;
+        private ZonedDateTime createdAt;
+
+        //Student attributes
+        private String studentId;
         private String studentNumber;
         private String studentCourse;
         private String yearOfStudy;
 
-
-        public StudentBuilder(String studentID,
-                              String studentNumber,
-                              String studentCourse,
-                              String yearOfStudy) {
-            this.studentID = studentID;
-            this.studentNumber = studentNumber;
-            this.studentCourse = studentCourse;
-            this.yearOfStudy = yearOfStudy;
-        }
-
-        public StudentBuilder() {
-        }
-
-        @Override
         public StudentBuilder setUserId(String userId) {
             this.userId = userId;
             return this;
         }
 
-        @Override
         public StudentBuilder setFirstName(String firstName) {
             this.firstName = firstName;
             return this;
         }
 
-        @Override
         public StudentBuilder setLastName(String lastName) {
             this.lastName = lastName;
             return this;
         }
 
-        @Override
         public StudentBuilder setPhoneNumber(String phoneNumber) {
             this.phoneNumber = phoneNumber;
             return this;
         }
 
-        @Override
         public StudentBuilder setEmail(String email) {
             this.email = email;
             return this;
         }
 
-        @Override
         public StudentBuilder setPassword(String password) {
             this.password = password;
             return this;
         }
 
-        public StudentBuilder setStudentID(String studentID) {
-            this.studentID = studentID;
+        public StudentBuilder setCreatedAt(ZonedDateTime createdAt) {
+            this.createdAt = createdAt;
+            return this;
+        }
+
+        public StudentBuilder setStudentId(String studentId) {
+            this.studentId = studentId;
             return this;
         }
 
@@ -143,7 +143,14 @@ public class Student extends User {
         }
 
         public StudentBuilder copy(Student student) {
-            this.studentID = student.studentID;
+            this.userId = student.userId;
+            this.firstName = student.firstName;
+            this.lastName = student.lastName;
+            this.phoneNumber = student.phoneNumber;
+            this.email = student.email;
+            this.password = student.password;
+            this.createdAt = student.createdAt;
+            this.studentId = student.studentID;
             this.studentNumber = student.studentNumber;
             this.studentCourse = student.studentCourse;
             this.yearOfStudy = student.yearOfStudy;
@@ -155,3 +162,5 @@ public class Student extends User {
         }
     }
 }
+
+

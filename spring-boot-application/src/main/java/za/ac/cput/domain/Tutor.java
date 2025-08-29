@@ -3,6 +3,8 @@ package za.ac.cput.domain;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
+import java.time.ZonedDateTime;
+
 /* Tutor.java
       Tutor POJO class
      Author: Henzley Spogter (230013309)
@@ -24,16 +26,13 @@ public class Tutor extends User {
 
     //Parameterised constructor
     private Tutor(TutorBuilder builder) {
-
-        // to construct a User object
-        super(new UserBuilder()
-                .setUserId(builder.userId)
-                .setFirstName(builder.firstName)
-                .setLastName(builder.lastName)
-                .setPhoneNumber(builder.phoneNumber)
-                .setEmail(builder.email)
-                .setPassword(builder.password));
-
+        this.userId = builder.userId;
+        this.firstName = builder.firstName;
+        this.lastName = builder.lastName;
+        this.phoneNumber = builder.phoneNumber;
+        this.email = builder.email;
+        this.password = builder.password;
+        this.createdAt = builder.createdAt;
         this.tutorID = builder.tutorID;
         this.hourlyRate = builder.hourlyRate;
         this.bio = builder.bio;
@@ -63,18 +62,34 @@ public class Tutor extends User {
 
     @Override
     public String toString() {
-        // add User toString() method
-        return super.toString() +
-                "Tutor{" + "tutorID=" + tutorID + "," +
-                " hourlyRate=" + hourlyRate + "," +
-                " bio='" + bio + '\'' +
+        return "userId='" + userId + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", createdAt=" + createdAt +
+                "Tutor{" +
+                "tutorID='" + tutorID + '\'' +
+                ", hourlyRate=" + hourlyRate +
+                ", bio='" + bio + '\'' +
                 ", averageRating=" + averageRating +
-                ", verificationStatus=" + verificationStatus + '}';
+                ", verificationStatus=" + verificationStatus +
+                '}';
     }
 
     // Implementation of builder class
-    public static class TutorBuilder extends UserBuilder {
+    public static class TutorBuilder {
+        //User attributes
+        private String userId;
+        private String firstName;
+        private String lastName;
+        private String phoneNumber;
+        private String email;
+        private String password;
+        private ZonedDateTime createdAt;
 
+        //Student attributes
         private String tutorID;
         private double hourlyRate;
         private String bio;
@@ -97,42 +112,40 @@ public class Tutor extends User {
 
         }
 
-        @Override
         public TutorBuilder setUserId(String userId) {
             this.userId = userId;
             return this;
         }
 
-        @Override
         public TutorBuilder setFirstName(String firstName) {
             this.firstName = firstName;
             return this;
         }
 
-        @Override
         public TutorBuilder setLastName(String lastName) {
             this.lastName = lastName;
             return this;
         }
 
-        @Override
         public TutorBuilder setPhoneNumber(String phoneNumber) {
             this.phoneNumber = phoneNumber;
             return this;
         }
 
-        @Override
         public TutorBuilder setEmail(String email) {
             this.email = email;
             return this;
         }
 
-        @Override
         public TutorBuilder setPassword(String password) {
             this.password = password;
             return this;
         }
 
+        public TutorBuilder setCreatedAt(ZonedDateTime createdAt) {
+            this.createdAt = createdAt;
+            return this;
+        }
 
         public TutorBuilder setTutorID(String tutorID) {
             this.tutorID = tutorID;
@@ -159,8 +172,14 @@ public class Tutor extends User {
             return this;
         }
 
-
         public TutorBuilder copy(Tutor tutor) {
+            this.userId = tutor.userId;
+            this.firstName = tutor.firstName;
+            this.lastName = tutor.lastName;
+            this.phoneNumber = tutor.phoneNumber;
+            this.email = tutor.email;
+            this.password = tutor.password;
+            this.createdAt = tutor.createdAt;
             this.tutorID = tutor.tutorID;
             this.hourlyRate = tutor.hourlyRate;
             this.bio = tutor.bio;
