@@ -7,8 +7,9 @@
 package za.ac.cput.factory;
 
 import za.ac.cput.domain.Student;
-import za.ac.cput.domain.User;
 import za.ac.cput.util.Helper;
+
+import java.time.ZonedDateTime;
 
 public class StudentFactory {
     public static Student createStudent(String firstName,
@@ -20,45 +21,44 @@ public class StudentFactory {
                                         String studentCourse,
                                         String yearOfStudy) {
 
-        // generate unique studentID
-        String studentID = Helper.generateId();
-
-        // return null if user is equal to null
-        User user = UserFactory.createUser(firstName, lastName, phoneNumber, email, password);
-        if (user == null) {
-            return null; // if the User validation fails
-        }
-
         // check for null or empty
         if (Helper.isNullOrEmpty(studentNumber) ||
                 Helper.isNullOrEmpty(studentCourse) ||
                 Helper.isNullOrEmpty(yearOfStudy)) {
-            return null;
+            throw new IllegalArgumentException("Missing student-specific fields");
         }
 
         //validate studentNumber
         if (!Helper.isValidStudentNumber(studentNumber)) {
-            return null;
+            throw new IllegalArgumentException("Invalid student number");
         }
 
         // validate studentCourse
         if (!Helper.isValidStudentCourse(studentCourse)) {
-            return null;
+            throw new IllegalArgumentException("Invalid student course");
         }
 
         // validate yearOfStudy
         if (!Helper.isValidYearOfStudy(yearOfStudy)) {
-            return null;
+            throw new IllegalArgumentException("Invalid year of study");
         }
 
+        //User factory
+        String userId = UserFactory.validateCommonAndGenerateId(
+                firstName, lastName, phoneNumber, email, password);
+
+        // generate unique studentID
+        String studentID = Helper.generateId();
+
         return new Student.StudentBuilder()
-                .setUserId(user.getUserId())        // Pass the User data
-                .setFirstName(user.getFirstName())
-                .setLastName(user.getLastName())
-                .setPhoneNumber(user.getPhoneNumber())
-                .setEmail(user.getEmail())
-                .setPassword(user.getPassword())
-                .setStudentID(studentID)
+                .setUserId(userId)
+                .setFirstName(firstName)
+                .setLastName(lastName)
+                .setPhoneNumber(phoneNumber)
+                .setEmail(email)
+                .setPassword(password)
+                .setCreatedAt(ZonedDateTime.now())
+                .setStudentId(studentID)
                 .setStudentNumber(studentNumber)
                 .setStudentCourse(studentCourse)
                 .setYearOfStudy(yearOfStudy)
