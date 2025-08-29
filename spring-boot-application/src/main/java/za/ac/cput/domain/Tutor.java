@@ -12,7 +12,7 @@ import java.time.ZonedDateTime;
      */
 @Entity
 public class Tutor extends User {
-    @Id
+
     private String tutorID;
     private double hourlyRate;
     private String bio;

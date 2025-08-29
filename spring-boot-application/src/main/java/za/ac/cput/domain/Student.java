@@ -12,7 +12,7 @@ import java.time.ZonedDateTime;
      */
 @Entity
 public class Student extends User {
-    @Id
+
     private String studentID;
     private String studentNumber;
     private String studentCourse;
