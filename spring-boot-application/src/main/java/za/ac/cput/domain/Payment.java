@@ -123,6 +123,16 @@ public class Payment {
             this.transactionID = transactionID;
         }
 
+        public PaymentBuilder copy(Payment payment) {
+            this.paymentID = payment.paymentID;
+            this.amount = payment.amount;
+            this.paymentDate = payment.paymentDate;
+            this.paymentMethod = payment.paymentMethod;
+            this.status = payment.status;
+            this.transactionID = payment.transactionID;
+            return this;
+        }
+
         public Payment build() {
             return new Payment(this);
         }
