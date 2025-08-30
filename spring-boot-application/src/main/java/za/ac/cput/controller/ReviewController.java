@@ -13,7 +13,7 @@ import java.util.List;
      Author: Cameron Savage (230582567)
      Date: 27 August 2025
      */
-
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/review")
 public class ReviewController {

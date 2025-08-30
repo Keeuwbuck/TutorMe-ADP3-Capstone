@@ -1,11 +1,13 @@
 // src/pages/CrudDisplay.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { getAllPayments } from "../api/paymentApi";
+import PaymentTable from "../components/PaymentTable";
+import { getAllReviews } from "../api/reviewApi";
+import ReviewTable from "../components/ReviewTable";
 
 export default function CrudDisplay() {
     const [activeTab, setActiveTab] = useState("User");
-
-    // Mock Data, replace with what is pulled from the backend
-    const data = {
+    const [data, setData] = useState({
         User: [
             { userId: 1, firstName: "John", lastName: "Doe", phoneNumber: "1234567890", email: "john@example.com", password: "hashed_pw" },
             { userId: 2, firstName: "Jane", lastName: "Smith", phoneNumber: "0987654321", email: "jane@example.com", password: "hashed_pw" },
@@ -30,25 +32,58 @@ export default function CrudDisplay() {
             { sessionId: 1, startTime: "2025-08-24T10:00", endTime: "2025-08-24T12:00", location: "Online", mode: "Virtual", cost: 400, status: "Completed", notes: "Great session" },
             { sessionId: 2, startTime: "2025-08-25T14:00", endTime: "2025-08-25T16:00", location: "Campus A", mode: "In-person", cost: 350, status: "Booked", notes: "" },
         ],
-        Review: [
-            { reviewID: 1, rating: 5, comment: "Excellent tutor!", dateSubmitted: "2025-08-20" },
-            { reviewID: 2, rating: 4, comment: "Very helpful", dateSubmitted: "2025-08-21" },
-        ],
-        Payment: [
-            { paymentID: 1, amount: 400, paymentDate: "2025-08-20", paymentMethod: "Card", status: "Completed", transactionID: "TX123" },
-            { paymentID: 2, amount: 350, paymentDate: "2025-08-22", paymentMethod: "EFT", status: "Pending", transactionID: "TX456" },
-        ],
+        Review: [],
+         //   { reviewID: 1, rating: 5, comment: "Excellent tutor!", dateSubmitted: "2025-08-20" },
+        //    { reviewID: 2, rating: 4, comment: "Very helpful", dateSubmitted: "2025-08-21" },
+      //  ],
+        Payment: [], // live data
         Availability: [
             { availabilityID: 1, dayOfWeek: "Monday", startTime: "09:00", endTime: "12:00" },
             { availabilityID: 2, dayOfWeek: "Wednesday", startTime: "14:00", endTime: "17:00" },
         ],
+    });
+
+    const [loading, setLoading] = useState(false);
+
+    const fetchPaymentData = async () => {
+        setLoading(true);
+        try {
+            const payments = await getAllPayments();
+            setData(prev => ({ ...prev, Payment: payments }));
+        } catch (error) {
+            console.error("Error fetching Payment data:", error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    // Fetch Review data
+    const fetchReviewData = async () => {
+        setLoading(true);
+        try {
+            const reviews = await getAllReviews();
+            setData(prev => ({ ...prev, Review: reviews }));
+        } catch (error) {
+            console.error("Error fetching Review data:", error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    // Handle View button
+    const handleView = () => {
+        if (activeTab === "Payment") {
+            fetchPaymentData();
+        } else if (activeTab === "Review") {
+            fetchReviewData();
+        } else {
+            alert(`Viewing ${activeTab} tab data (mock data)`);
+        }
     };
 
     const renderTable = (rows) => {
         if (!rows || rows.length === 0) return <p>No data available</p>;
-
         const headers = Object.keys(rows[0]);
-
         return (
             <table className="w-full border border-gray-300 rounded-lg overflow-hidden shadow">
                 <thead className="bg-blue-600 text-white">
@@ -71,11 +106,6 @@ export default function CrudDisplay() {
         );
     };
 
-    const handleView = () => {
-        // placeholder function for now
-        alert(`Refreshing ${activeTab} data... (hook backend here later)`);
-    };
-
     return (
         <div className="p-6">
             <h1 className="text-3xl font-bold mb-6">CRUD Display</h1>
@@ -86,8 +116,7 @@ export default function CrudDisplay() {
                     <button
                         key={table}
                         onClick={() => setActiveTab(table)}
-                        className={`px-4 py-2 rounded-lg shadow 
-              ${activeTab === table ? "bg-blue-600 text-white" : "bg-gray-200 hover:bg-gray-300"}`}
+                        className={`px-4 py-2 rounded-lg shadow ${activeTab === table ? "bg-blue-600 text-white" : "bg-gray-200 hover:bg-gray-300"}`}
                     >
                         {table}
                     </button>
@@ -102,10 +131,17 @@ export default function CrudDisplay() {
                         onClick={handleView}
                         className="px-4 py-2 bg-green-600 text-white rounded-lg shadow hover:bg-green-700"
                     >
-                        View
+                        {loading ? "Loading..." : "View"}
                     </button>
                 </div>
-                {renderTable(data[activeTab])}
+
+                {activeTab === "Payment" ? (
+                    <PaymentTable payments={data.Payment} />
+                ) : activeTab === "Review" ? (
+                    <ReviewTable reviews={data.Review} />
+                ) : (
+                    renderTable(data[activeTab])
+                )}
             </div>
         </div>
     );
