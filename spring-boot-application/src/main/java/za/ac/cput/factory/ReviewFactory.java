@@ -4,6 +4,12 @@ import za.ac.cput.domain.Review;
 
 import java.time.LocalDateTime;
 
+/* ReviewFactory.java
+      Review Factory class
+     Author: Cameron Savage (230582567)
+     Date: 15 May 2025
+     */
+
 public class ReviewFactory {
     public static Review createReview(String reviewID,
                                       int rating,
