@@ -1,7 +1,7 @@
 package za.ac.cput.domain;
 
 /* Payment.java
-      Review POJO class
+      Payment POJO class
      Author: Cameron Savage (230582567)
      Date: 11 May 2025
      */
