@@ -4,6 +4,12 @@ import za.ac.cput.domain.Payment;
 
 import java.time.LocalDateTime;
 
+/* PaymentFactory.java
+      Payment Factory class
+     Author: Cameron Savage (230582567)
+     Date: 15 May 2025
+     */
+
 public class PaymentFactory {
     public static Payment createPayment(String paymentID,
                                         double amount,
