@@ -1,4 +1,4 @@
-package za.ac.cput.Factory;
+package za.ac.cput.factory;
 /*  SessionFactory.java
     Session Factory class
     Author: Angelo Smidt - 230688020

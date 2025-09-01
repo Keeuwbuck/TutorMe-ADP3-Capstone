@@ -1,4 +1,4 @@
-package za.ac.cput.Factory;
+package za.ac.cput.factory;
 
 import za.ac.cput.domain.Subject;
 import za.ac.cput.util.Helper;
