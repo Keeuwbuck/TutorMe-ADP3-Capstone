@@ -1,3 +1,4 @@
+
 /*  AvailabilityFactory.java
     Availability Factory class
     Author: Hope Ringane (221174109)

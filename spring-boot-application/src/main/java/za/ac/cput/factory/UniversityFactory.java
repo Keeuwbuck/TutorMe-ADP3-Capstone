@@ -1,4 +1,4 @@
-package za.ac.cput.factory;
+package za.ac.cput.Factory;
 /*  UniversityFactory.java
     University Factory class
     Author: Angelo Smidt - 230688020
