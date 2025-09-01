@@ -7,11 +7,11 @@ import java.util.List;
 public interface IAvailabilityService {
     Availability create(Availability availability);
 
-    Availability read(String id);
+    Availability read(Long id);
 
     Availability update(Availability availability);
 
-    boolean delete(String id);
+    boolean delete(Long id);
 
     List<Availability> getAll();
 }

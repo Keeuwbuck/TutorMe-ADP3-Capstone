@@ -6,76 +6,80 @@
 package za.ac.cput.domain;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class Availability {
+
     @Id
-    private String availabilityId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long availabilityId;
     private String dayOfWeek;
     private String startTime;
     private String endTime;
 
-    public Availability() {
-    }
+    // Default constructor
+    public Availability() {}
 
-    public Availability(Builder builder) {
+    // Builder constructor
+    private Availability(Builder builder) {
         this.availabilityId = builder.availabilityId;
         this.dayOfWeek = builder.dayOfWeek;
         this.startTime = builder.startTime;
         this.endTime = builder.endTime;
     }
 
-    public String getAvailabilityId() {
-        return availabilityId;
-    }
-
-    public String getdayOfWeek() {
-        return dayOfWeek;
-    }
-
-    public String getstartTime() {
-        return startTime;
-    }
-
-    public String getendTime() {
-        return endTime;
-    }
+    // Getters
+    public Long getAvailabilityId() { return availabilityId; }
+    public String getDayOfWeek() { return dayOfWeek; }
+    public String getStartTime() { return startTime; }
+    public String getEndTime() { return endTime; }
 
     @Override
     public String toString() {
         return "Availability{" +
-                "availabilityId='" + availabilityId + '\'' +
+                "availabilityId=" + availabilityId +
                 ", dayOfWeek='" + dayOfWeek + '\'' +
                 ", startTime='" + startTime + '\'' +
                 ", endTime='" + endTime + '\'' +
                 '}';
     }
 
+    // Builder class
     public static class Builder {
-
-        private String availabilityId;
+        private Long availabilityId;
         private String dayOfWeek;
         private String startTime;
         private String endTime;
 
-        public Builder setAvailabilityId(String availabilityId) {
+        public Builder setAvailabilityId(Long availabilityId) {
             this.availabilityId = availabilityId;
             return this;
         }
 
-        public Builder setdayOfWeek(String dayOfWeek) {
+        public Builder setDayOfWeek(String dayOfWeek) {
             this.dayOfWeek = dayOfWeek;
             return this;
         }
 
-        public Builder setstartTime(String startTime) {
+        public Builder setStartTime(String startTime) {
             this.startTime = startTime;
             return this;
         }
 
-        public Builder setendTime(String endTime) {
+        public Builder setEndTime(String endTime) {
             this.endTime = endTime;
+            return this;
+        }
+
+        // ✅ copy method
+        public Builder copy(Availability availability) {
+            this.availabilityId = availability.availabilityId;
+            this.dayOfWeek = availability.dayOfWeek;
+            this.startTime = availability.startTime;
+            this.endTime = availability.endTime;
             return this;
         }
 

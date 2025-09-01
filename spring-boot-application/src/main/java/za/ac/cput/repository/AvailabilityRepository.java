@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import za.ac.cput.domain.Availability;
 
 @Repository
-public interface AvailabilityRepository extends JpaRepository<Availability, String> {
+public interface AvailabilityRepository extends JpaRepository<Availability, Long> {
 }

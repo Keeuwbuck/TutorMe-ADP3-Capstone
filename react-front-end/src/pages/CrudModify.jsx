@@ -14,6 +14,13 @@ import {
     deleteReview
 } from "../api/reviewApi";
 
+import {
+    getAllAvailabilities,
+    createAvailability,
+    updateAvailability,
+    deleteAvailability
+} from "../api/availabilityApi";
+
 export default function CrudModify() {
     const [activeTab, setActiveTab] = useState("User");
 
@@ -31,6 +38,7 @@ export default function CrudModify() {
 
     const [paymentsList, setPaymentsList] = useState([]);
     const [reviewsList, setReviewsList] = useState([]);
+    const [availabilitiesList, setAvailabilitiesList] = useState([]);
 
     // Load data depending on active tab
     useEffect(() => {
@@ -39,6 +47,7 @@ export default function CrudModify() {
         } else if (activeTab === "Review") {
             fetchReviews();
         }
+        else if (activeTab === "Availability") fetchAvailabilities();
     }, [activeTab]);
 
     const fetchPayments = async () => {
@@ -56,6 +65,15 @@ export default function CrudModify() {
             setReviewsList(data);
         } catch (err) {
             console.error("Error fetching reviews:", err);
+        }
+    };
+
+    const fetchAvailabilities = async () => {
+        try {
+            const data = await getAllAvailabilities();
+            setAvailabilitiesList(data);
+        } catch (err) {
+            console.error("Error fetching availabilities:", err);
         }
     };
 
@@ -77,6 +95,10 @@ export default function CrudModify() {
                 const newReview = await createReview(formData.Review);
                 alert("Review created!");
                 setReviewsList(prev => [...prev, newReview]);
+            } else if (entity === "Availability") {
+                const newAvailability = await createAvailability(formData.Availability);
+                alert("Availability created!");
+                setAvailabilitiesList(prev => [...prev, newAvailability]);
             } else {
                 console.log("Saving new record for:", entity, formData[entity]);
             }
@@ -96,6 +118,10 @@ export default function CrudModify() {
                 await updateReview(formData.Review);
                 alert("Review updated!");
                 fetchReviews();
+            } else if (entity === "Availability") {
+                await updateAvailability(formData.Availability.availabilityID, formData.Availability);
+                alert("Availability updated!");
+                fetchAvailabilities();
             } else {
                 console.log("Updating record for:", entity, formData[entity]);
             }
@@ -115,6 +141,10 @@ export default function CrudModify() {
                 await deleteReview(formData.Review.reviewID);
                 alert("Review deleted!");
                 setReviewsList(prev => prev.filter(r => r.reviewID !== formData.Review.reviewID));
+            } else if (entity === "Availability") {
+                await deleteAvailability(formData.Availability.availabilityID);
+                alert("Availability deleted!");
+                setAvailabilitiesList(prev => prev.filter(a => a.availabilityID !== formData.Availability.availabilityID));
             } else {
                 console.log("Deleting record for:", entity, formData[entity]);
             }
@@ -159,6 +189,24 @@ export default function CrudModify() {
                     {reviewsList.map(r => (
                         <option key={r.reviewID} value={r.reviewID}>
                             {r.reviewID} - {r.rating}⭐ ({r.comment.slice(0, 15)}…)
+                        </option>
+                    ))}
+                </select>
+            )}
+
+            {entity === "Availability" && availabilitiesList.length > 0 && (
+                <select
+                    className="w-full border px-3 py-2 rounded mb-4"
+                    value={formData.Availability.availabilityID}
+                    onChange={(e) => {
+                        const selected = availabilitiesList.find(a => a.availabilityID === e.target.value);
+                        setFormData(prev => ({ ...prev, Availability: selected }));
+                    }}
+                >
+                    <option value="">Select Availability to Edit</option>
+                    {availabilitiesList.map(a => (
+                        <option key={a.availabilityID} value={a.availabilityID}>
+                            {a.dayOfWeek} ({a.startTime} - {a.endTime})
                         </option>
                     ))}
                 </select>
