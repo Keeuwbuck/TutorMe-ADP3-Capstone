@@ -5,7 +5,6 @@ package za.ac.cput.factory;
     Date: 29 August 2025
  */
 
-
 import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.Student;
 
@@ -26,7 +25,6 @@ class StudentFactoryTest {
                 "3"
         );
 
-        // user fields
         assertNotNull(student.getUserId());
         assertEquals("John", student.getFirstName());
         assertEquals("Doe", student.getLastName());
@@ -35,7 +33,6 @@ class StudentFactoryTest {
         assertEquals("Password123!", student.getPassword());
         assertNotNull(student.getCreatedAt());
 
-        // student fields
         assertNotNull(student.getStudentId());
         assertEquals("230013309", student.getStudentNumber());
         assertEquals("DPICT: Applications Development", student.getStudentCourse());
@@ -46,31 +43,35 @@ class StudentFactoryTest {
 
     @Test
     void createStudent_withInvalidStudentNumber_shouldThrow() {
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> StudentFactory.createStudent(
-                "Jane",
-                "Doe",
-                "0685050842",
-                "janedoe@gmail.com",
-                "Password123!",
-                "INVALID#",       // invalid format
-                "DPICT: Applications Development",
-                "3"
-        ));
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            StudentFactory.createStudent(
+                    "Jane",
+                    "Doe",
+                    "0685050842",
+                    "janedoe@gmail.com",
+                    "Password123!",
+                    "INVALID#",       // invalid format
+                    "Computer Science",
+                    "3"
+            );
+        });
         assertTrue(exception.getMessage().contains("Invalid student number"));
     }
 
     @Test
     void createStudent_withEmptyCourse_shouldThrow() {
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> StudentFactory.createStudent(
-                "Jane",
-                "Doe",
-                "0685050842",
-                "janedoe@gmail.com",
-                "Password123!",
-                "ST12345",
-                "",                // empty course
-                "3"
-        ));
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            StudentFactory.createStudent(
+                    "Jane",
+                    "Doe",
+                    "0685050842",
+                    "janedoe@gmail.com",
+                    "Password123!",
+                    "ST12345",
+                    "",                // empty course
+                    "3"
+            );
+        });
         assertTrue(exception.getMessage().contains("Missing student-specific fields"));
     }
 }

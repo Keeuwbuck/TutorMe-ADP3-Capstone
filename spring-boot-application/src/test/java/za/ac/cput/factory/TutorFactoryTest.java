@@ -20,13 +20,12 @@ class TutorFactoryTest {
                 "0723456789",
                 "alice.smith@gmail.com",
                 "SecurePass123!",
-                250.0,                      // hourly rate
-                "Experienced Java tutor.",  // bio
-                4.8,                        // average rating
-                true                        // verification status
+                250.0,
+                "Experienced Java tutor.",
+                4.8,
+                true
         );
 
-        // user-level fields
         assertNotNull(tutor);
         assertNotNull(tutor.getUserId());
         assertEquals("Alice", tutor.getFirstName());
@@ -35,7 +34,6 @@ class TutorFactoryTest {
         assertEquals("alice.smith@gmail.com", tutor.getEmail());
         assertEquals("SecurePass123!", tutor.getPassword());
 
-        // tutor-level fields
         assertNotNull(tutor.getTutorID());
         assertEquals(250.0, tutor.getHourlyRate());
         assertEquals("Experienced Java tutor.", tutor.getBio());
