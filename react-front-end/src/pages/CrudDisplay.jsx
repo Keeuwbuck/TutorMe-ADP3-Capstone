@@ -4,6 +4,7 @@ import { getAllPayments } from "../api/paymentApi";
 import PaymentTable from "../components/PaymentTable";
 import { getAllReviews } from "../api/reviewApi";
 import ReviewTable from "../components/ReviewTable";
+import { getAllAvailabilities } from "../api/availabilityApi";
 
 export default function CrudDisplay() {
     const [activeTab, setActiveTab] = useState("User");
@@ -37,10 +38,7 @@ export default function CrudDisplay() {
         //    { reviewID: 2, rating: 4, comment: "Very helpful", dateSubmitted: "2025-08-21" },
       //  ],
         Payment: [], // live data
-        Availability: [
-            { availabilityID: 1, dayOfWeek: "Monday", startTime: "09:00", endTime: "12:00" },
-            { availabilityID: 2, dayOfWeek: "Wednesday", startTime: "14:00", endTime: "17:00" },
-        ],
+        Availability: [],
     });
 
     const [loading, setLoading] = useState(false);
@@ -70,12 +68,27 @@ export default function CrudDisplay() {
         }
     };
 
+    const fetchAvailabilityData = async () => {
+        setLoading(true);
+        try {
+            const availabilities = await getAllAvailabilities();
+            setData(prev => ({ ...prev, Availability: availabilities }));
+        } catch (error) {
+            console.error("Error fetching Availability data:", error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+
     // Handle View button
     const handleView = () => {
         if (activeTab === "Payment") {
             fetchPaymentData();
         } else if (activeTab === "Review") {
             fetchReviewData();
+        } else if (activeTab === "Availability") {
+            fetchAvailabilityData();
         } else {
             alert(`Viewing ${activeTab} tab data (mock data)`);
         }
