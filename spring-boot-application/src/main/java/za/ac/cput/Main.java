@@ -1,5 +1,5 @@
-package za.ac.cput;
-
+package src.main.java.za.ac.cput;
+/*spogter*/
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import za.ac.cput.domain.Student;
