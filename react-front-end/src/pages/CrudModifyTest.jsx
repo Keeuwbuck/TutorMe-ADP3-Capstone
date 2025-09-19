@@ -14,6 +14,13 @@ import {
     deleteReview
 } from "../api/reviewApi";
 
+import {
+    getAllSubjects,
+    createSubject,
+    updateSubject,
+    deleteSubject
+} from "../api/subjectApi";
+
 export default function CrudModify() {
     const [activeTab, setActiveTab] = useState("User");
 
@@ -31,12 +38,16 @@ export default function CrudModify() {
 
     const [paymentsList, setPaymentsList] = useState([]);
     const [reviewsList, setReviewsList] = useState([]);
+    const [subjectsList, setSubjectsList] = useState([]);
 
     // Load data depending on active tab
     useEffect(() => {
         if (activeTab === "Payment") {
             fetchPayments();
-        } else if (activeTab === "Review") {
+        }  else if (activeTab === "Subject") {
+            fetchSubjects();
+        }
+        else if (activeTab === "Review") {
             fetchReviews();
         }
     }, [activeTab]);
@@ -58,6 +69,14 @@ export default function CrudModify() {
             console.error("Error fetching reviews:", err);
         }
     };
+    const fetchSubjects = async () => {
+        try {
+            const data = await getAllSubjects();
+            setSubjectsList(data);
+        } catch (err) {
+            console.error("Error fetching subjects:", err);
+        }
+    };
 
     const handleChange = (entity, field, value) => {
         setFormData({
@@ -73,7 +92,12 @@ export default function CrudModify() {
                 const newPayment = await createPayment(formData.Payment);
                 alert("Payment created!");
                 setPaymentsList(prev => [...prev, newPayment]);
-            } else if (entity === "Review") {
+            } else if (entity === "Subject") {
+                const newSubject = await createSubject(formData.Subject);
+                alert("Subject created!");
+                setSubjectsList(prev => [...prev, newSubject]);}
+
+            else if (entity === "Review") {
                 const newReview = await createReview(formData.Review);
                 alert("Review created!");
                 setReviewsList(prev => [...prev, newReview]);
@@ -92,7 +116,12 @@ export default function CrudModify() {
                 await updatePayment(formData.Payment);
                 alert("Payment updated!");
                 fetchPayments();
-            } else if (entity === "Review") {
+            }
+            else if (entity === "Subject") {
+                await updateSubject(formData.Subject);
+                alert("Subject updated!");
+                fetchSubjects();
+            }else if (entity === "Review") {
                 await updateReview(formData.Review);
                 alert("Review updated!");
                 fetchReviews();
@@ -111,7 +140,12 @@ export default function CrudModify() {
                 await deletePayment(formData.Payment.paymentID);
                 alert("Payment deleted!");
                 setPaymentsList(prev => prev.filter(p => p.paymentID !== formData.Payment.paymentID));
-            } else if (entity === "Review") {
+            } else if (entity === "Subject") {
+                await deleteSubject(formData.Subject.subjectCode);
+                alert("Subject deleted!");
+                setSubjectsList(prev => prev.filter(s => s.subjectCode !== formData.Subject.subjectCode));
+            }
+            else if (entity === "Review") {
                 await deleteReview(formData.Review.reviewID);
                 alert("Review deleted!");
                 setReviewsList(prev => prev.filter(r => r.reviewID !== formData.Review.reviewID));
@@ -140,6 +174,23 @@ export default function CrudModify() {
                     {paymentsList.map(p => (
                         <option key={p.paymentID} value={p.paymentID}>
                             {p.paymentID} - {p.amount} ({p.status})
+                        </option>
+                    ))}
+                </select>
+            )}
+            {entity === "Subject" && subjectsList.length > 0 && (
+                <select
+                    className="w-full border px-3 py-2 rounded mb-4"
+                    value={formData.Subject.subjectCode}
+                    onChange={(e) => {
+                        const selected = subjectsList.find(s => s.subjectCode === e.target.value);
+                        setFormData(prev => ({ ...prev, Subject: selected }));
+                    }}
+                >
+                    <option value="">Select Subject to Edit</option>
+                    {subjectsList.map(s => (
+                        <option key={s.subjectCode} value={s.subjectCode}>
+                            {s.subjectCode} - {s.subjectName}({s.subjectDescription}
                         </option>
                     ))}
                 </select>

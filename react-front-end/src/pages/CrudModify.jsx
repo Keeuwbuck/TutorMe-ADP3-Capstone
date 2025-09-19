@@ -21,6 +21,13 @@ import {
     deleteAvailability
 } from "../api/availabilityApi";
 
+import {
+    getAllSubjects,
+    createSubject,
+    updateSubject,
+    deleteSubject
+} from "../api/subjectApi";
+
 export default function CrudModify() {
     const [activeTab, setActiveTab] = useState("User");
 
@@ -39,6 +46,7 @@ export default function CrudModify() {
     const [paymentsList, setPaymentsList] = useState([]);
     const [reviewsList, setReviewsList] = useState([]);
     const [availabilitiesList, setAvailabilitiesList] = useState([]);
+    const [subjectsList, setSubjectsList] = useState([]);
 
     // Load data depending on active tab
     useEffect(() => {
@@ -46,7 +54,8 @@ export default function CrudModify() {
             fetchPayments();
         } else if (activeTab === "Review") {
             fetchReviews();
-        }
+        }else if (activeTab === "Subject") {
+            fetchSubjects();}
         else if (activeTab === "Availability") fetchAvailabilities();
     }, [activeTab]);
 
@@ -77,6 +86,15 @@ export default function CrudModify() {
         }
     };
 
+    const fetchSubjects = async () => {
+        try {
+            const data = await getAllSubjects();
+            setSubjectsList(data);
+        } catch (err) {
+            console.error("Error fetching subjects:", err);
+        }
+    };
+
     const handleChange = (entity, field, value) => {
         setFormData({
             ...formData,
@@ -99,7 +117,13 @@ export default function CrudModify() {
                 const newAvailability = await createAvailability(formData.Availability);
                 alert("Availability created!");
                 setAvailabilitiesList(prev => [...prev, newAvailability]);
-            } else {
+            } else if (entity==="Subject"){
+                const newSubject=await createSubject(formData.Subject);
+                alert("Subject created!");
+                setSubjectsList(prev =>[...prev,newSubject] );
+            }
+
+            else {
                 console.log("Saving new record for:", entity, formData[entity]);
             }
         } catch (err) {
@@ -118,7 +142,12 @@ export default function CrudModify() {
                 await updateReview(formData.Review);
                 alert("Review updated!");
                 fetchReviews();
-            } else if (entity === "Availability") {
+            }
+            else if (entity === "Subject") {
+                await updateSubject(formData.Subject.subjectCode,formData.Subject);
+                alert("Subject updated!");
+                fetchSubjects();
+            }else if (entity === "Availability") {
                 await updateAvailability(formData.Availability.availabilityID, formData.Availability);
                 alert("Availability updated!");
                 fetchAvailabilities();
@@ -137,7 +166,12 @@ export default function CrudModify() {
                 await deletePayment(formData.Payment.paymentID);
                 alert("Payment deleted!");
                 setPaymentsList(prev => prev.filter(p => p.paymentID !== formData.Payment.paymentID));
-            } else if (entity === "Review") {
+            } else if (entity === "Subject") {
+                await deleteSubject(formData.Subject.subjectCode);
+                alert("Subject deleted!");
+                setSubjectsList(prev => prev.filter(s=> s.subjectCode !== formData.Subject.subjectCode));}
+
+            else if (entity === "Review") {
                 await deleteReview(formData.Review.reviewID);
                 alert("Review deleted!");
                 setReviewsList(prev => prev.filter(r => r.reviewID !== formData.Review.reviewID));
@@ -189,6 +223,24 @@ export default function CrudModify() {
                     {reviewsList.map(r => (
                         <option key={r.reviewID} value={r.reviewID}>
                             {r.reviewID} - {r.rating}⭐ ({r.comment.slice(0, 15)}…)
+                        </option>
+                    ))}
+                </select>
+            )}
+            {entity === "Subject" && subjectsList.length > 0 && (
+                <select
+                    className="w-full border px-3 py-2 rounded mb-4"
+                    value={formData.Subject.subjectCode}
+                    onChange={(e) => {
+                        const selected = subjectsList.find(s => s.subjectCode === e.target.value);
+                        setFormData(prev => ({ ...prev, Subject: selected }));
+                    }}
+                >
+
+                    <option value="">Select Subject to Edit</option>
+                    {subjectsList.map(s => (
+                        <option key={s.subjectCode} value={s.subjectCode}>
+                            {s.subjectCode} - {s.subjectName}({s.subjectDescription})
                         </option>
                     ))}
                 </select>

@@ -1,9 +1,15 @@
 // src/pages/CrudDisplayTest.jsx
+/*
+Keewan Titus
+230778577
+ */
 import React, { useState, useEffect } from "react";
 import { getAllPayments } from "../api/paymentApi";
 import PaymentTable from "../components/PaymentTable";
 import { getAllReviews } from "../api/reviewApi";
 import ReviewTable from "../components/ReviewTable";
+import {getAllSubjects} from "../api/SubjectApi.js";
+import SubjectTable from "../components/SubjectTable.jsx";
 
 export default function CrudDisplay() {
     const [activeTab, setActiveTab] = useState("User");
@@ -56,6 +62,18 @@ export default function CrudDisplay() {
             setLoading(false);
         }
     };
+    // Fetch Subject data
+    const fetchSubjectData = async () => {
+        setLoading(true);
+        try {
+            const subjects = await getAllSubjects();
+            setData(prev => ({ ...prev, Subject: subjects }));
+        } catch (error) {
+            console.error("Error fetching Subject data:", error);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     // Fetch Review data
     const fetchReviewData = async () => {
@@ -70,16 +88,21 @@ export default function CrudDisplay() {
         }
     };
 
+
     // Handle View button
     const handleView = () => {
         if (activeTab === "Payment") {
             fetchPaymentData();
-        } else if (activeTab === "Review") {
+        } else if (activeTab === "Subject") {
+            fetchSubjectData();}
+
+        else if (activeTab === "Review") {
             fetchReviewData();
         } else {
             alert(`Viewing ${activeTab} tab data (mock data)`);
         }
     };
+
 
     const renderTable = (rows) => {
         if (!rows || rows.length === 0) return <p>No data available</p>;
@@ -139,6 +162,8 @@ export default function CrudDisplay() {
                     <PaymentTable payments={data.Payment} />
                 ) : activeTab === "Review" ? (
                     <ReviewTable reviews={data.Review} />
+                )  : activeTab === "Subject" ? (
+                    <SubjectTable subjects={data.Subject} />
                 ) : (
                     renderTable(data[activeTab])
                 )}

@@ -1,10 +1,16 @@
 // src/pages/CrudDisplay.jsx
+/*
+Keewan Titus
+230778577
+ */
 import React, { useState, useEffect } from "react";
 import { getAllPayments } from "../api/paymentApi";
 import PaymentTable from "../components/PaymentTable";
 import { getAllReviews } from "../api/reviewApi";
 import ReviewTable from "../components/ReviewTable";
 import { getAllAvailabilities } from "../api/availabilityApi";
+import{getAllSubjects} from "../api/SubjectApi.js";
+import SubjectTable from "../components/SubjectTable.jsx";
 
 export default function CrudDisplay() {
     const [activeTab, setActiveTab] = useState("User");
@@ -21,10 +27,10 @@ export default function CrudDisplay() {
             { tutorID: 1, hourlyRate: 200, bio: "Math wizard", averageRating: 4.8, verificationStatus: "Verified" },
             { tutorID: 2, hourlyRate: 150, bio: "Physics expert", averageRating: 4.5, verificationStatus: "Pending" },
         ],
-        Subject: [
-            { subjectCode: "MATH101", subjectName: "Calculus", subjectDescription: "Intro to calculus", department: "Mathematics", difficultyLevel: "Hard" },
-            { subjectCode: "CS201", subjectName: "Data Structures", subjectDescription: "Study of data structures", department: "Computer Science", difficultyLevel: "Medium" },
-        ],
+        Subject: [],
+        // { subjectCode: "MATH101", subjectName: "Calculus", subjectDescription: "Intro to calculus", department: "Mathematics", difficultyLevel: "Hard" },
+        // { subjectCode: "CS201", subjectName: "Data Structures", subjectDescription: "Study of data structures", department: "Computer Science", difficultyLevel: "Medium" },
+
         Student: [
             { studentID: 1, studentNumber: "S12345", studentCourse: "Computer Science", yearOfStudy: 2 },
             { studentID: 2, studentNumber: "S67890", studentCourse: "Engineering", yearOfStudy: 3 },
@@ -34,9 +40,9 @@ export default function CrudDisplay() {
             { sessionId: 2, startTime: "2025-08-25T14:00", endTime: "2025-08-25T16:00", location: "Campus A", mode: "In-person", cost: 350, status: "Booked", notes: "" },
         ],
         Review: [],
-         //   { reviewID: 1, rating: 5, comment: "Excellent tutor!", dateSubmitted: "2025-08-20" },
+        //   { reviewID: 1, rating: 5, comment: "Excellent tutor!", dateSubmitted: "2025-08-20" },
         //    { reviewID: 2, rating: 4, comment: "Very helpful", dateSubmitted: "2025-08-21" },
-      //  ],
+        //  ],
         Payment: [], // live data
         Availability: [],
     });
@@ -79,6 +85,17 @@ export default function CrudDisplay() {
             setLoading(false);
         }
     };
+    const fetchSubjectData = async () => {
+        setLoading(true);
+        try {
+            const subjects = await getAllSubjects();
+            setData(prev => ({ ...prev, Subject: subjects }));
+        } catch (error) {
+            console.error("Error fetching Subject data:", error);
+        } finally {
+            setLoading(false);
+        }
+    };
 
 
     // Handle View button
@@ -87,7 +104,9 @@ export default function CrudDisplay() {
             fetchPaymentData();
         } else if (activeTab === "Review") {
             fetchReviewData();
-        } else if (activeTab === "Availability") {
+        }else if(activeTab=="Subject"){
+            fetchSubjectData();
+        }else if (activeTab === "Availability") {
             fetchAvailabilityData();
         } else {
             alert(`Viewing ${activeTab} tab data (mock data)`);
@@ -150,6 +169,8 @@ export default function CrudDisplay() {
 
                 {activeTab === "Payment" ? (
                     <PaymentTable payments={data.Payment} />
+                ):activeTab === "Subject" ? (
+                    <SubjectTable subjects={data.Subject} />
                 ) : activeTab === "Review" ? (
                     <ReviewTable reviews={data.Review} />
                 ) : (

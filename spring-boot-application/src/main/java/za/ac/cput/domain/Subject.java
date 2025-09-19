@@ -96,8 +96,13 @@ public class Subject {
         }
 
         public SubjectBuilder copy(Subject subject) {
-            return null;
+            this.subjectCode = subject.subjectCode;
+            this.subjectName = subject.subjectName;
+            this.subjectDescription = subject.subjectDescription;
+            this.department = subject.department;
+            this.difficultyLevel = subject.difficultyLevel;
+            return this;
         }
-    }
 
+    }
 }
